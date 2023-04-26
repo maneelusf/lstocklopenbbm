@@ -1,0 +1,24 @@
+GOOGLESEARCH: ### your SERP API KEY
+
+OPENBB:
+  ALPHA_VANTAGE_KEY: 
+  FINANCIALMODELLING_AND_PREP_KEY: 
+  FINNHUB_KEY: 
+  POLYGON_KEY: 
+  FRED_KEY: 
+ 
+STOCKS:
+  - 'AAPL'
+  - 'TSLA'
+  - 'V'
+  - 'MSFT'
+  - 'AMZN'
+  - 'NVDA'
+  - 'META'
+  - 'GOOG'
+  - 'BRK-B'
+  - 'JNJ'
+  
+LLMS:
+  COHERE_API_KEY: 
+  OPENAI_API_KEY: 
