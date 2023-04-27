@@ -17,3 +17,17 @@ openbb.keys.fmp(
 openbb.keys.polygon(key=data_dict["OPENBB"]["POLYGON_KEY"], persist=True)
 openbb.keys.finnhub(key=data_dict["OPENBB"]["FINNHUB_KEY"], persist=True)
 openbb.keys.fred(key=data_dict["OPENBB"]["FRED_KEY"], persist=True)
+
+stocks = yaml_data['STOCKS']
+
+for stock in stocks:
+    stock_data = StockData(stock)
+    stock_data.initialize_folders()
+    stock_data.analysis_file()
+    stock_data.ratio_file()
+    stock_data.cash_file()
+    stock_data.est_file()
+    stock_data.fraud_file()
+    stock_data.income_file()
+    stock_data.balance_file()
+    stock_data.news_file()
