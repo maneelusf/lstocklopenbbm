@@ -1,6 +1,7 @@
 import yaml
 from datacreator import StockData,EconomyData
 from openbb_terminal.sdk import openbb
+import yaml
 
 
 # Open the YAML file and load its contents into a Python object

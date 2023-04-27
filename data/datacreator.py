@@ -7,6 +7,20 @@ from dateutil.relativedelta import relativedelta
 from serpapi import GoogleSearch
 import requests
 from bs4 import BeautifulSoup
+import yaml
+from fuzzywuzzy import process
+with open('apis.yaml', 'r') as file:
+    yaml_data = yaml.load(file, Loader=yaml.FullLoader)
+data_dict = dict(yaml_data)
+stock_summary = pd.read_json('https://www.sec.gov/files/company_tickers.json').T
+stock_summary = stock_summary[['title','ticker']]
+stock_summary.columns = ['Company','Ticker']
+openbb.keys.av(key = data_dict['OPENBB']['ALPHA_VANTAGE_KEY'], persist = True)
+openbb.keys.fmp(key = data_dict['OPENBB']['FINANCIALMODELLING_AND_PREP_KEY'],persist = True)
+openbb.keys.polygon(key = data_dict['OPENBB']['POLYGON_KEY'],persist = True)
+openbb.keys.finnhub(key = data_dict['OPENBB']['FINNHUB_KEY'],persist = True)
+openbb.keys.fred(key = data_dict['OPENBB']['FRED_KEY'],persist = True)
+SERP_API_KEY = data_dict['GOOGLESEARCH']
 
 class StockData:
     def __init__(self,ticker,ratios = True,cash = True, balance = True,est = True,fraud = True,
@@ -25,7 +39,7 @@ class StockData:
         path = os.listdir('../ticker')
         if self.ticker not in path:
             os.system('mkdir ../ticker/{}'.format(self.ticker))
-            for folder in ['fa','news','sec']:
+            for folder in ['fa','news','output']:
                 os.system('mkdir  ../ticker/{}/{}'.format(self.ticker,folder))
                 
     def create_file(self,file,file_folder,file_name,file_type):
@@ -110,10 +124,13 @@ class StockData:
                 ### News from FinnHub
                 end_date = datetime.today().strftime('%Y-%m-%d')
                 start_date = (datetime.today() - relativedelta(months = 2)).strftime('%Y-%m-%d')
-                df = openbb.stocks.ba.cnews(self.ticker,start_date = start_date,end_date = end_date)
+                if self.ticker == 'BRK-B':
+                    df = openbb.stocks.ba.cnews('BRK.A',start_date = start_date,end_date = end_date)
+                else:
+                    df = openbb.stocks.ba.cnews(self.ticker,start_date = start_date,end_date = end_date)
                 df = pd.DataFrame(df)[['related','datetime','headline','summary']]
                 df['datetime'] = df['datetime'].apply(lambda x:datetime.fromtimestamp(x))
-                stock_summary = pd.read_csv('../ticker/stocks.csv')
+                import pdb;pdb.set_trace()
                 choices = list(stock_summary[stock_summary['Ticker'] == self.ticker].values[0])
                 result = pd.DataFrame([process.extract(headline, choices, limit=2) for headline in df['headline']])
                 result.columns = choices
@@ -126,7 +143,10 @@ class StockData:
                 #import pdb;pdb.set_trace()
                 self.create_file(result,'news','c_news','.csv')
                 ### Sentiment analysis of news
-                df = openbb.stocks.ba.snews(self.ticker)
+                if self.ticker == 'BRK-B':
+                    df = openbb.stocks.ba.snews('BRK.A')
+                else:           
+                    df = openbb.stocks.ba.snews(self.ticker)
                 df.columns = ['sentiment']
                 df = df[df['sentiment']!=0]
                 self.create_file(df,'news','s_news','.csv')
@@ -141,16 +161,15 @@ class EconomyData:
     def fed_file(self):
         if self.fed_news:
             search = GoogleSearch({
-    "q": "Fed news", 
-    "api_key": SERP_API_KEY
-  })
+    "q": "US Federal Reserve Bank news", 
+    "api_key": SERP_API_KEY,"tbm":"nws"})
             result = search.get_dict()
-            titles = ['\nTitle:' + x['title'] + '\n' for x in result['top_stories']]
-            links = [x['link'] for x in result['top_stories']]
-            link_text = [self.text_link(link) for link in links]            
-            combined_text = [title + link for title,link in zip(titles,link_text)]
-            combined_text = ''.join(combined_text)
-            self.create_file(combined_text,'fed_news','.txt')
+            sources = ['cnbc','reuters','forbes']
+            results = [x['link'] for x in result['news_results'] if \
+                       ('Fed' in x['title']) and (x['source'].lower() in sources)]
+            link_text = [self.text_link(link) for link in results]
+            link_df = pd.DataFrame(y,columns = ['article'])
+            self.create_file(link_df,'fed_news','.csv')
     
     def treasury_file(self):
         if self.treasury_news:
@@ -164,7 +183,9 @@ class EconomyData:
         try:
             r = requests.get(link)
             soup = BeautifulSoup(r.content, 'html.parser')
-            text = soup.text
+            text = ''
+            for a in soup.find_all('p'):
+                text = text + a.text
         except:
             text = ''
         return text
