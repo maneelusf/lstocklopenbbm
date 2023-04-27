@@ -24,77 +24,103 @@
 <table>
 <tr>
 <td>
+The purpose of this repository is to enhance investment research and harness the capabilities of large language models (LLMs). Currently, there are two features available in this repository:
 
-Open Source Software is not about the code in the first place but the communications and community. People love good documentation and obvious workflows. If your software solves some problem, but nobody can figure out how to use it or, for example, how to create an effective bug report, there's something very bad going on. Did you hear about Readme Driven Development? Check out the awesome [article written by GitHub co-founder Tom Preston-Werner](https://tom.preston-werner.com/2010/08/23/readme-driven-development.html).
+- Sentiment analysis of tickers on a daily basis using a multi shot approach learning approach
+- Sentiment analysis of propreitary data.
 
-There are many great README or issues templates available on GitHub, however, you have to find them yourself and combine different templates yourself. In addition, if you want extensive docs like CODE_OF_CONDUCT.md, CONTRIBUTING.md, SECURITY.md or even advanced GitHub features like a pull request template, additional labels, code scanning, and automatic issue/PR closing and locking you have to do much more work. Your time should be focused on creating something **amazing**. You shouldn't be doing the same tasks over and over like creating your GitHub project template from scratch. Follow the **don’t repeat yourself** principle. Use a template **and go create something amazing**!
+These features leverage the power of LLMs to provide valuable insights and information to investors, enabling them to make informed decisions. By utilizing these tools, investors can gain a deeper understanding of market sentiment and potential investment opportunities.
 
-Key features of **Amazing GitHub Template**:
+Key features of **Findastic**:
 
-- Configurable README.md template
-- Configurable LICENSE template
-- Configurable CODE_OF_CONDUCT.md template
-- Configurable CONTRIBUTING.md template
-- Configurable SECURITY.md template
-- Configurable issues template
-- Pull request template
-- CODEOWNERS template
-- Additional labels template
-- Automatic locking for closed issues and PRs workflow
-- Automatic cleaning for stale issues and PRs workflow
-- Automatic label verification for PRs workflow
-- Automatic security code scanning workflow via CodeQL
+- Sentiment Analysis of Propreitary data(Implemented)
+- Sentiment Analysis of News of stock tickers(currently 10 stocks are implemented for the POC)
+- Summaries of SEC filings of stocks(To be implemented)
+- Summaries of Federal Reserve bank news(To be implemented)
+- Ability to query fundamental analysis of a ticker (e.g. stock performance, key risks) (to be implemented)
 
-<details open>
-<summary>Additional info</summary>
-<br>
-
-This project is the result of huge research. I'm a long-time GitHub user so I've seen more than [7.3k](https://github.com/dec0dOS?tab=stars) READMEs so far. I've started writing docs for my open source projects (that are currently in their early stages so they exist in the private space for now). After I've analyzed many popular GitHub READMEs and other GitHub-related docs and features I've tried to create a general-propose template that may be useful for any project.
-
-Of course, no template will serve all the projects since your needs may be different. So [Cookiecutter](https://github.com/cookiecutter/cookiecutter) comes to the rescue. It allows [Jinja template language](https://jinja.palletsprojects.com) to be used for complex cases. Just enter up the project preferences you want in the Cookiecutter interactive menu and that's it. There is a manual setup that could be useful for your existing projects (or if you don't want to use Cookiecutter for some reason). **This README.md file is not a template itself**, you should [download the precompiled template](https://github.com/dec0dOS/amazing-github-template/releases/download/latest/template.zip) and replace the predefined values, then remove unused sections.
-
-</details>
-
-</td>
-</tr>
-</table>
-
-### Built With
-
-- [GitHub Flavored Markdown Spec](https://github.github.com/gfm/)
-- [Cookiecutter](https://github.com/cookiecutter/cookiecutter)
-- [GitHub Actions](https://github.com/features/actions)
-- [markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli)
+These features are designed to provide users with valuable insights into the market, keep them up-to-date with the latest developments, and help them make informed decisions about their investments. Findastic is a comprehensive platform/data providor that aims to offer a range of tools and resources to help investors stay ahead of the curve.
 
 ## Getting Started
-
+Before we get started, we require the following 
 ### Prerequisites
 
-The recommended method to install **Amazing GitHub Template** is by using [Cookiecutter](https://github.com/cookiecutter/cookiecutter). For manual install please refer to [manual setup section](#manual-setup).
-
-The easiest way to install Cookiecutter is by running:
-
 ```sh
-pip install --user cookiecutter
+pip install -r requirements.txt
 ```
-
-For other install options, please refer to [Cookiecutter installation manual](https://cookiecutter.readthedocs.io/en/latest/installation.html).
 
 ### Usage
+In the next step, we need to set the following API keys namely:-
+| API                        | Link                                                                               | 
+| -------------------------- | --------------------                                                               | 
+| Open AI API Key            | [Link](https://platform.openai.com/account/api-keys)                               |
+| Cohere API Key             | [Link](https://dashboard.cohere.ai/)                                               |
+| AI21 API Key               | [Link](https://studio.ai21.com/account)                                            |
+| Alphavantage API Key       | [Link](https://www.alphavantage.co/support/#api-key)                               |
+| FinnHubb API Key           | [Link](https://finnhub.io/dashboard)                                               |
+| Polygon API Key            | [Link](https://polygon.io/dashboard)                                               |
+| Fred API Key               | [Link](https://fred.stlouisfed.org/docs/api/api_key.html)                          |
+| Financial Model & Prep     | [Link](https://site.financialmodelingprep.com/developer/docs/dashboard/)           |
+| Google Search              | [Link](https://serpapi.com/dashboard)                                              |
 
-#### Cookiecutter template
+**Note**: Other than Open AI, the free version of the API keys should suffice for general individual academic research.
+Cohere AI currently has a trial API key plan which allows 5000 requests per month while  AI21 
+### Data Collection
 
-After installing Cookiecutter, all you need to do is to run the following command:
-
+#### API creation and collation
+Once we have all the API keys set up, we create a yaml file in the /data folder as follows:-<br>
+Command:
 ```sh
-cookiecutter gh:dec0dOS/amazing-github-template
+cd data
 ```
+**apis.yaml config sample**
+```sh 
+OPENBB:
+  ALPHA_VANTAGE_KEY: 
+  FINANCIALMODELLING_AND_PREP_KEY: 
+  FINNHUB_KEY: 
+  POLYGON_KEY: 
+  FRED_KEY: 
+ 
+STOCKS:
+  - 'AAPL'
+  - 'TSLA'
+  - 'V'
+  - 'MSFT'
+  - 'AMZN'
+  - 'NVDA'
+  - 'META'
+  - 'GOOG'
+  - 'BRK-B'
+  - 'JNJ'
+  
+LLMS:
+  COHERE_API_KEY: 
+  OPENAI_API_KEY: 
+  AI21_API_KEY: 
+```
+This example above is for 10 stocks listed above. Please keep your stock tickers that you want analyzed by adding to the STOCKS key in the yaml. 
+#### Data Collection
+We are using [OpenBB](https://github.com/OpenBB-finance/OpenBBTerminal) as our data vendor as it is an open-source investment research platform. We are collecting the following information about stocks.
 
-You will get an interactive prompt where you'll specify relevant options for your project (or the default value will be used).
+- Financial Ratios
+- Balance Sheet
+- News
+- Income Statement
+- Cash Flows
+- News 
+- Sentiment Scores using the NLTK vader model
+- 5 year estimates about the stock
+- Fraud Ratios(M score,Z score & B score)
 
-![Preview](docs/images/preview.svg)
+In order to collect data, run the following command.
 
-#### Manual setup
+```sh 
+python main.py
+```
+This would create folders for each stock along with the necessary analysis. 
+
+### Methodology
 
 Please follow these steps for manual setup:
 
@@ -113,28 +139,7 @@ Default values are provided as an example to help you figure out what should be 
 
 > On manual setup, you need to replace only values written in **uppercase**.
 
-| Name                       | Default value      | Description                                                                 |
-| -------------------------- | ------------------ | --------------------------------------------------------------------------- |
-| PROJECT_NAME               | My Amazing Project | Your project name                                                           |
-| REPO_SLUG                  | my-amazing-project | Repo slug must match the GitHub repo URL slug part                          |
-| GITHUB_USERNAME            | dec0dOS            | Your GitHub username **without @**                                          |
-| FULL_NAME                  | Alexey Potapov     | Your full name                                                              |
-| OPEN_SOURCE_LICENSE        | MIT license        | Full OSS license name                                                       |
-| modern_header              | y                  | Use HTML to prettify your header                                            |
-| table_in_about             | n                  | Use table to wrap around About section                                      |
-| include_logo               | y                  | Include Logo section. Only valid when `modern_header == y`          |
-| include_badges             | y                  | Include section for badges                                                  |
-| include_toc                | y                  | Include Table of Contents                                                   |
-| include_screenshots        | y                  | Include Screenshots section                                                 |
-| include_project_assistance | y                  | Include Project assistance section                                          |
-| include_authors            | y                  | Include Authors & contributors section                                      |
-| include_security           | y                  | Include Security section and SECURITY.md file                               |
-| include_acknowledgements   | y                  | Include Acknowledgements section                                            |
-| include_code_of_conduct    | y                  | Include CODE_OF_CONDUCT.md file                                             |
-| include_workflows          | y                  | Include .github/workflows directory                                         |
-| use_codeql                 | y                  | Use [CodeQL](https://securitylab.github.com/tools/codeql/)                  |
-| use_conventional_commits   | y                  | Add [Conventional Commits](https://www.conventionalcommits.org) notice      |
-| use_github_discussions     | n                  | Use [GitHub Discussions](https://docs.github.com/en/discussions/quickstart) |
+
 
 > NOTICE: to use GitHub Discussions, you have to [enable it first](https://docs.github.com/en/discussions/quickstart).
 
@@ -168,11 +173,6 @@ Reach out to the maintainer at one of the following places:
 - [GitHub discussions](https://github.com/dec0dOS/amazing-github-template/discussions)
 - The email which is located [in GitHub profile](https://github.com/dec0dOS)
 
-## License
-
-This project is licensed under the **MIT license**. Feel free to edit and distribute this template as you like.
-
-See [LICENSE](LICENSE) for more information.
 
 ## Acknowledgements
 
