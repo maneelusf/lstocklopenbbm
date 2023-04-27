@@ -1,6 +1,6 @@
 .csv
 .DS_Store
-.yaml
+*.yaml
 __pycache__/
 ./data/apis.yaml
 .i/data/APIS.yaml
