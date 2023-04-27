@@ -158,9 +158,6 @@ class StockData:
                 df["datetime"] = df["datetime"].apply(
                     lambda x: datetime.fromtimestamp(x)
                 )
-                import pdb
-
-                pdb.set_trace()
                 choices = list(
                     stock_summary[stock_summary["Ticker"] == self.ticker].values[0]
                 )

@@ -61,6 +61,7 @@ class StockLLM:
 class llm_analysis:
     def __init__(self, ticker, open_ai_params, cohere_params, ai21_params):
         ### Requires both Cohere and OpenAI APIs
+        import pdb;pdb.set_trace()
         self.ticker = ticker
         self.open_ai_params = open_ai_params
         self.cohere_params = cohere_params
@@ -91,7 +92,7 @@ and negative news in bullet points. Please do not leave out any point and go ste
             template=template, input_variables=["sec_summary"]
         )
         pos_neg_chain = LLMChain(
-            llm=self.open_ai, prompt=pos_neg_template, output_key="sec_final_output"
+            llm=self.open_ai_llm, prompt=pos_neg_template, output_key="sec_final_output"
         )
         overall_chain = SequentialChain(
             input_variables=["stock", "summary"],
