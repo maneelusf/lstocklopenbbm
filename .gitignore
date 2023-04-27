@@ -1,5 +1,5 @@
 .csv
 .DS_Store
 .yaml
-/data/apis.yaml
-/data/APIS.yaml
+./data/apis.yaml
+.i/data/APIS.yaml
