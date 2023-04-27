@@ -12,6 +12,7 @@ from langchain.prompts.example_selector import SemanticSimilarityExampleSelector
 from langchain.prompts import FewShotPromptTemplate, PromptTemplate
 from langchain.embeddings import CohereEmbeddings
 from langchain.vectorstores import FAISS
+import os
 
 with open("./data/apis.yaml", "r") as file:
     yaml_data = yaml.load(file, Loader=yaml.FullLoader)
@@ -61,7 +62,9 @@ class StockLLM:
 class llm_analysis:
     def __init__(self, ticker, open_ai_params, cohere_params, ai21_params):
         ### Requires both Cohere and OpenAI APIs
-        import pdb;pdb.set_trace()
+        import pdb
+
+        pdb.set_trace()
         self.ticker = ticker
         self.open_ai_params = open_ai_params
         self.cohere_params = cohere_params
@@ -197,7 +200,7 @@ and negative news in bullet points. Please do not leave out any point and go ste
                 )
                 validation_dict.append(pred)
         test_data_set["sentiment_bucket"] = validation_dict
-        z = y.copy()
+        z = test_data_set.copy()
         z["sentiment_bucket"] = [x.strip() for x in z["sentiment_bucket"]]
         df = pd.DataFrame(
             {

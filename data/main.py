@@ -31,3 +31,4 @@ for stock in stocks:
     stock_data.income_file()
     stock_data.balance_file()
     stock_data.news_file()
+
