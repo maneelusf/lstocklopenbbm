@@ -131,7 +131,11 @@ class StockData:
         ### Return analysis from analysts for the selected stock
         if self.analysis:
             try:
-                df = openbb.stocks.fa.analysis(self.ticker)
+                if self.ticker == "META":
+                    import pdb;pdb.set_trace()
+                    df = openbb.stocks.fa.analysis("FB")
+                else:
+                    df = openbb.stocks.fa.analysis(self.ticker)
                 text = "".join(list(df["Sentence"]))
                 self.create_file(text, "fa", "analysis_sec", ".txt")
             except:
@@ -244,3 +248,6 @@ class EconomyData:
             f = open(file_path, "w")
             f.write(file)
             f.close()
+
+stock = StockData(ticker="META")
+stock.analysis_file()
