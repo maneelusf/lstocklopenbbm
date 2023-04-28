@@ -73,7 +73,6 @@ class StockData:
         ### Return all financial ratios of the selected stock
         if self.ratios:
             try:
-
                 df = openbb.stocks.fa.ratios(self.ticker)
                 df = df[df.index != "Period"]
                 # df.to_csv('../ticker/{}/{}/{}'.format(self.ticker,'fa','ratios.csv'))
