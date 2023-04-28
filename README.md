@@ -10,16 +10,14 @@
     - [Manual setup](#manual-setup)
     - [Variables reference](#variables-reference)
 - [Roadmap](#roadmap)
-- [Contributing](#contributing)
 - [Support](#support)
-- [License](#license)
 - [Acknowledgements](#acknowledgements)
 
 </details>
 
 ---
 
-## About
+# About
 
 <table>
 <tr>
@@ -41,9 +39,9 @@ Key features of **Findastic**:
 
 These features are designed to provide users with valuable insights into the market, keep them up-to-date with the latest developments, and help them make informed decisions about their investments. Findastic is a comprehensive platform/data providor that aims to offer a range of tools and resources to help investors stay ahead of the curve.
 
-## Getting Started
-Before we get started, we require the following 
-### Prerequisites
+# **Getting Started**
+
+## **Prerequisites**
 
 ```sh
 pip install -r requirements.txt
@@ -64,10 +62,11 @@ In the next step, we need to set the following API keys namely:-
 | Google Search              | [Link](https://serpapi.com/dashboard)                                              |
 
 **Note**: Other than Open AI, the free version of the API keys should suffice for general individual academic research.
-Cohere AI currently has a trial API key plan which allows 5000 requests per month while  AI21 
-### Data Collection
+Cohere AI currently has a trial API key plan which allows 5000 requests per month while  AI21 is free till July 31st 2023. We use Cohere/AI21 wherever we see a indistinguishable output between OpenAI and the alternative. However, our experimentation process shows that OpenAI's text DaVinci model performs the best especially in reasoning,classification and segmentation.
 
-#### API creation and collation
+## **Data Collection**
+
+#### **API creation and collation**
 Once we have all the API keys set up, we create a yaml file in the /data folder as follows:-<br>
 Command:
 ```sh
@@ -100,7 +99,7 @@ LLMS:
   AI21_API_KEY: 
 ```
 This example above is for 10 stocks listed above. Please keep your stock tickers that you want analyzed by adding to the STOCKS key in the yaml. 
-#### Data Collection
+
 We are using [OpenBB](https://github.com/OpenBB-finance/OpenBBTerminal) as our data vendor as it is an open-source investment research platform. We are collecting the following information about stocks.
 
 - Financial Ratios
@@ -120,83 +119,74 @@ python main.py
 ```
 This would create folders for each stock along with the necessary analysis. 
 
-### Methodology
+## **Methodology**
 
-Please follow these steps for manual setup:
+#### **Sentiment Analysis of news**
 
-1. [Download the precompiled template](https://github.com/dec0dOS/amazing-github-template/releases/download/latest/template.zip)
-2. Replace all the [variables](#variables-reference) to your desired values
-3. Initialize the repo in the precompiled template folder
+The algorithm we use is as follows:-
+1. Collect news about stocks from OpenBB FinHubb API. 
+2. Our initial analysis showed that a lot of news headlines were not related to the stock. 
+3. We used Levenshtein distance on the news headlines(using both ticker and company name) and filtered the news related to the stocks(Suprisingly LLMs do not perform well on this.)
+4. Next, we use a few shot learning approach where we manually labelled around 100 headlines of GOOG and TSLA into 5 categories i.e. Strongly Negative, Negative, Neutral, Positive & Strongly Positive. 
+5. The 100 manually labelled labels are fed into a FAISS vector database.
+6. When feeding a new stock's headlines, a similarity search is performed with the 100 examples present in the database and ~5 examples are fetched. 
+7. The LLM is prompted as follows:-
+```sh 
+Generate a sentiment score of a headline
+ The outputs can only be [Strongly Negative,Negative,Neutral,Positive,Strongly Positive]
+ Input: Tesla Should Consider Buying Ads. It Could Help the Stock.
+ Output: Negative
+ Input: Tesla Inc. stock falls Tuesday, still outperforms market
+ Output: Negative
+ Input: Tesla: the problem is Musk‚Äôs multitasking, not his stake
+ Output: Negative
 
-    `or`
+ Input: GM earnings preview; Tesla raises 2023 capital expenditure forecast
+ Output:
+```
+Each headline has a different set of training examples depending on its similarity with the trained examples. 
 
-    Move the necessary files from precompiled template folder to your existing project directory. Don't forget the `.github` directory that may be hidden by default in your operating system
+#### **SEC filings summary and analysis**
 
-#### Variables reference
+The algorithm we use is as follows:-
+1. Collect SEC summary for the ticker. 
+2. Generate a coherent bullet point summary of the SEC summary. Our analysis shows that the SEC summary obtained from FinnHubb is not in a clean consumable information for the end user. We use Cohere to generate the summaries for cost efficiency. 
+3. Separate the summary into Positive and Negative News.
 
-Please note that entered values are case-sensitive.
-Default values are provided as an example to help you figure out what should be entered.
+A sample output is as follows:-
 
-> On manual setup, you need to replace only values written in **uppercase**.
+```sh 
+Positive News
+1. iPad net sales increased during the first quarter of 2023 compared to the same quarter in 2022 due primarily to higher net sales of iPad and iPad Air.
+2. Services net sales increased during the first quarter of 2023 compared to the same quarter in 2022 due primarily to higher net sales from cloud services, the App Store and music.
+3. Services gross margin increased during the first quarter of 2023 compared to the same quarter in 2022 due primarily to higher Services net sales.
+4. The Company's effective tax rate for the first quarter of 2023 was lower compared to the same quarter in 2022 due primarily to a higher U. S. federal R & D credit, lower state income taxes and a lower effective tax rate on foreign earnings, largely offset by lower tax benefits from share-based compensation.
+```
+```sh
+Negative News:
+1. Europe net sales decreased during the first quarter of 2023 compared to the same quarter in 2022 due to the weakness in foreign currencies relative to the U. S. dollar, which contributed to lower net sales of iPhone and Mac.
+2. Japan net sales decreased during the first quarter of 2023 compared to the same quarter in 2022 due to the weakness of the yen relative to the U. S. dollar, which contributed to lower net sales of Services and Mac.
+3. Mac net sales decreased during the first quarter of 2023 compared to the same quarter in 2022 due primarily to lower net sales of MacBook Pro.
+4. Wearables, Home and Accessories net sales decreased during the first quarter of 2023 compared to the same quarter in 2022 due primarily to lower net sales of AirPods, partially offset by higher net sales of Watch.
+5. Products Gross Margin Products gross margin decreased during the first quarter of 2023 compared to the same quarter in 2022 due primarily to the weakness in foreign currencies relative to the U. S. dollar and lower Products volume.
+6. Services gross margin percentage decreased during the first quarter of 2023 compared to the same quarter in 2022 due primarily to the weakness in foreign currencies relative to the U. S. dollar and higher Services costs, partially offset by improved leverage.
+7. iPhone iPhone net sales decreased during the first quarter of 2023 compared to the same quarter in 2022 due primarily to lower net sales from the Company’s new iPhone models launched in the fourth quarter of 2022.
+```
+
+#### **Roadmap**
+Here is the roadmap to the following questions:-
+
+1. Summaries of SEC filings of stocks
+The SEC filings summaries are yet to be exposed to the API.
+2. Q&A answering about stock financial performance.
+Create a vector database on Faiss where financial documents can be added with the appropriate index. 
 
 
 
-> NOTICE: to use GitHub Discussions, you have to [enable it first](https://docs.github.com/en/discussions/quickstart).
-
-## Roadmap
-
-See the [open issues](https://github.com/dec0dOS/amazing-github-template/issues) for a list of proposed features (and known issues).
-
-- [Top Feature Requests](https://github.com/dec0dOS/amazing-github-template/issues?q=label%3Aenhancement+is%3Aopen+sort%3Areactions-%2B1-desc) (Add your votes using the 👍 reaction)
-- [Top Bugs](https://github.com/dec0dOS/amazing-github-template/issues?q=is%3Aissue+is%3Aopen+label%3Abug+sort%3Areactions-%2B1-desc) (Add your votes using the 👍 reaction)
-- [Newest Bugs](https://github.com/dec0dOS/amazing-github-template/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
-
-## Contributing
-
-First off, thanks for taking the time to contribute! Contributions are what makes the open-source community such an amazing place to learn, inspire, and create. Any contributions you make will benefit everybody else and are **greatly appreciated**.
-
-Please try to create bug reports that are:
-
-- _Reproducible._ Include steps to reproduce the problem.
-- _Specific._ Include as much detail as possible: which version, what environment, etc.
-- _Unique._ Do not duplicate existing opened issues.
-- _Scoped to a Single Bug._ One bug per report.
-
-Please adhere to this project's [code of conduct](docs/CODE_OF_CONDUCT.md).
-
-You can use [markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli) to check for common markdown style inconsistency.
 
 ## Support
 
 Reach out to the maintainer at one of the following places:
+- [GitHub discussions](https://github.com/maneelusf)
 
-- [GitHub discussions](https://github.com/dec0dOS/amazing-github-template/discussions)
-- The email which is located [in GitHub profile](https://github.com/dec0dOS)
-
-
-## Acknowledgements
-
-Thanks for these awesome resources that were used during the development of the **Amazing GitHub template**:
-
-- <https://github.com/cookiecutter/cookiecutter>
-- <https://github.github.com/gfm/>
-- <https://tom.preston-werner.com/2010/08/23/readme-driven-development.html>
-- <https://changelog.com/posts/top-ten-reasons-why-i-wont-use-your-open-source-project>
-- <https://thoughtbot.com/blog/how-to-write-a-great-readme>
-- <https://www.makeareadme.com>
-- <https://github.com/noffle/art-of-readme>
-- <https://github.com/noffle/common-readme>
-- <https://github.com/RichardLitt/standard-readme>
-- <https://github.com/matiassingers/awesome-readme>
-- <https://github.com/LappleApple/feedmereadmes>
-- <https://github.com/othneildrew/Best-README-Template>
-- <https://github.com/mhucka/readmine>
-- <https://github.com/badges/shields>
-- <https://github.com/cjolowicz/cookiecutter-hypermodern-python>
-- <https://github.com/stevemao/github-issue-templates>
-- <https://github.com/devspace/awesome-github-templates>
-- <https://github.com/cezaraugusto/github-template-guidelines>
-- <https://github.com/frenck?tab=repositories>
-- <https://docs.github.com/en/discussions/quickstart>
-- <https://docs.github.com/en/actions>
 

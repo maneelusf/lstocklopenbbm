@@ -132,7 +132,6 @@ class StockData:
         if self.analysis:
             try:
                 if self.ticker == "META":
-                    import pdb;pdb.set_trace()
                     df = openbb.stocks.fa.analysis("FB")
                 else:
                     df = openbb.stocks.fa.analysis(self.ticker)
@@ -216,7 +215,7 @@ class EconomyData:
                 if ("Fed" in x["title"]) and (x["source"].lower() in sources)
             ]
             link_text = [self.text_link(link) for link in results]
-            link_df = pd.DataFrame(y, columns=["article"])
+            link_df = pd.DataFrame(link_text, columns=["article"])
             self.create_file(link_df, "fed_news", ".csv")
 
     def treasury_file(self):
@@ -248,6 +247,3 @@ class EconomyData:
             f = open(file_path, "w")
             f.write(file)
             f.close()
-
-stock = StockData(ticker="META")
-stock.analysis_file()
