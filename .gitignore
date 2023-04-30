@@ -7,3 +7,4 @@ __pycache__/
 .i/data/APIS.yaml
 data/
 ticker/
+economy/
