@@ -5,3 +5,5 @@ __pycache__/
 .ipynb_checkpoints/
 ./data/apis.yaml
 .i/data/APIS.yaml
+data/
+ticker/
