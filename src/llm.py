@@ -14,7 +14,7 @@ from langchain.embeddings import CohereEmbeddings
 from langchain.vectorstores import FAISS
 import os
 
-with open("./data/apis.yaml", "r") as file:
+with open("../data/apis.yaml", "r") as file:
     yaml_data = yaml.load(file, Loader=yaml.FullLoader)
 open_ai_params = {
     "max_tokens": 512,
@@ -46,7 +46,7 @@ class StockLLM:
 
     def sec_analysis_agent(self):
         ### Get sec files
-        file_path = f"./ticker/{self.ticker}/fa/analysis_sec.txt"
+        file_path = f"../ticker/{self.ticker}/fa/analysis_sec.txt"
         try:
             with open(file_path, "r") as f:
                 file = f.read()
@@ -59,7 +59,7 @@ class StockLLM:
 #         file_path = f'./ticker/
 
 
-class llm_analysis:
+class LLM_analysis:
     def __init__(self, ticker, open_ai_params, cohere_params, ai21_params):
         ### Requires both Cohere and OpenAI APIs
         self.ticker = ticker
@@ -117,13 +117,13 @@ and negative news in bullet points. Please do not leave out any point and go ste
     def news_chain_analysis(self):
         try:
             train_data_set = pd.read_csv(
-                "./train/news_train.csv", delimiter="\t"
+                "../train/news_train.csv", delimiter="\t"
             ).to_dict("records")
         except:
             raise Exception("The training file does not exist")
         try:
             test_data_set = pd.read_csv(
-                "./train/news_train.csv", delimiter="\t"
+                "../train/news_train.csv", delimiter="\t"
             ).to_dict("records")
         except:
             raise Exception("The training file does not exist")
