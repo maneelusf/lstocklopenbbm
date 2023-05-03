@@ -235,3 +235,4 @@ Please predict sentiment classification of the above based on above text where s
 """
         sec_template = PromptTemplate(template=template, input_variables=["summary"])
         return self.open_ai_llm(template.format(summary=query))
+    
