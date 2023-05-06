@@ -6,3 +6,4 @@ pyyaml
 langchain
 cohere
 faiss-cpu
+pypdf

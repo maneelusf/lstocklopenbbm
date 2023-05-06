@@ -2,7 +2,7 @@ import yaml
 from langchain.llms import Cohere, OpenAI, AI21
 from langchain import PromptTemplate, LLMChain
 from langchain.callbacks import get_openai_callback
-from langchain.chains import SequentialChain
+from langchain.chains import SequentialChain,AnalyzeDocumentChain
 import pandas as pd
 import numpy as np
 from datetime import datetime
@@ -10,8 +10,13 @@ from dateutil.relativedelta import relativedelta
 from fuzzywuzzy import fuzz, process
 from langchain.prompts.example_selector import SemanticSimilarityExampleSelector
 from langchain.prompts import FewShotPromptTemplate, PromptTemplate
-from langchain.embeddings import CohereEmbeddings
+from langchain.embeddings import CohereEmbeddings,OpenAIEmbeddings
+
 from langchain.vectorstores import FAISS
+from langchain.document_loaders import DataFrameLoader,CSVLoader,SeleniumURLLoader
+from langchain.docstore.document import Document
+from langchain.chains.summarize import load_summarize_chain
+import pypdf
 import os
 
 with open("../data/apis.yaml", "r") as file:
@@ -28,7 +33,7 @@ cohere_params = {
     "k": 0,
 }
 ai21_params = {
-    "model": "j2-grande-instruct",
+    "model": "j2-jumbo-instruct",
     "numResults": 1,
     "temperature": 0,
     "topP": 1,
@@ -53,11 +58,6 @@ class StockLLM:
         except:
             raise Exception("This file is unavailable")
         return file
-
-
-#     def news_agent(self):
-#         file_path = f'./ticker/
-
 
 class LLM_analysis:
     def __init__(self, ticker, open_ai_params, cohere_params, ai21_params):
@@ -114,120 +114,8 @@ and negative news in bullet points. Please do not leave out any point and go ste
             statement["token_summary"] = cb
         return statement
 
-    def news_chain_analysis(self):
-        try:
-            train_data_set = pd.read_csv(
-                "../train/news_train.csv", delimiter="\t"
-            ).to_dict("records")
-        except:
-            raise Exception("The training file does not exist")
-        try:
-            test_data_set = pd.read_csv(
-                "../train/news_train.csv", delimiter="\t"
-            ).to_dict("records")
-        except:
-            raise Exception("The training file does not exist")
-        ### This is the example prompt for getting the sentiment buckets.
-        example_prompt = PromptTemplate(
-            input_variables=["headline", "Sentiment"],
-            template="Example Input: {headline}\nExample Output: {Sentiment}",
-        )
-        example_selector_initial = SemanticSimilarityExampleSelector.from_examples(
-            # This is the list of examples available to select from.
-            train_data_set,
-            # This is the embedding class used to produce embeddings which are used to measure semantic similarity.
-            CohereEmbeddings(cohere_api_key=cohere_params["cohere_api_key"]),
-            # This is the VectorStore class that is used to store the embeddings and do a similarity search over.
-            FAISS,
-            # This is the number of examples to produce.
-            k=30,
-        )
-        example_selector_following = SemanticSimilarityExampleSelector.from_examples(
-            # This is the list of examples available to select from.
-            train_data_set,
-            # This is the embedding class used to produce embeddings which are used to measure semantic similarity.
-            CohereEmbeddings(cohere_api_key=cohere_params["cohere_api_key"]),
-            # This is the VectorStore class that is used to store the embeddings and do a similarity search over.
-            FAISS,
-            # This is the number of examples to produce.
-            k=2,
-        )
-        try:
-            test_data_set = pd.read_csv(f"./ticker/{self.ticker}/news/c_news.csv")[
-                ["headline", "datetime"]
-            ]
-        except:
-            raise Exception(f"The news file of {self.ticker} does not exist")
-        similar_prompt_initial = FewShotPromptTemplate(
-            # The object that will help select examples
-            example_selector=example_selector_initial,
-            # Your prompt
-            example_prompt=example_prompt,
-            # Customizations that will be added to the top and bottom of your prompt
-            prefix="""Generate a sentiment score of a headline\n The outputs can only be 
-        [Strongly Negative,Negative,Neutral,Positive,Strongly Positive]""",
-            suffix="Input: {Headline}\nOutput:",
-            # What inputs your prompt will receive
-            input_variables=["Headline"],
-        )
-        similar_prompt_following = FewShotPromptTemplate(
-            # The object that will help select examples
-            example_selector=example_selector_following,
-            # Your prompt
-            example_prompt=example_prompt,
-            # Customizations that will be added to the top and bottom of your prompt
-            prefix="""Generate a sentiment score of a headline\n The outputs can only be 
-        [Strongly Negative,Negative,Neutral,Positive,Strongly Positive]""",
-            suffix="Input: {Headline}\nOutput:",
-            # What inputs your prompt will receive
-            input_variables=["Headline"],
-        )
-        validation_dict = []
-        for x in test_data_set.to_records("dict"):
-            if x.index == 0:
-                # llm = self.cohere_llm(**self.cohere_ai_params)
-                pred = self.open_ai_llm(
-                    similar_prompt_initial.format(Headline=x["headline"])
-                )
-                validation_dict.append(pred)
-            else:
-                # llm = self.cohere_llm(**self.cohere_ai_params)
-                pred = self.open_ai_llm(
-                    similar_prompt_following.format(Headline=x["headline"])
-                )
-                validation_dict.append(pred)
-        test_data_set["sentiment_bucket"] = validation_dict
-        z = test_data_set.copy()
-        z["sentiment_bucket"] = [x.strip() for x in z["sentiment_bucket"]]
-        df = pd.DataFrame(
-            {
-                "Strongly Positive": [0.8, 1],
-                "Positive": [0.6, 0.8],
-                "Neutral": [0.5, 0.51],
-                "Negative": [0.2, 0.4],
-                "Strongly Negative": [0, 0.2],
-            }
-        ).T.reset_index()
-        df["index"] = df["index"].astype(str)
-        df.columns = ["index", "lower_bound", "higher_bound"]
-        z = z.merge(df, left_on="sentiment_bucket", right_on="index", how="outer")
-
-        z["sentiment_score"] = [
-            np.random.randint(x * 100, y * 100) / 100
-            for x, y in zip(z["lower_bound"], z["higher_bound"])
-        ]
-        z["ticker"] = self.ticker
-        final_cols = [
-            "ticker",
-            "headline",
-            "datetime",
-            "sentiment_bucket",
-            "sentiment_score",
-        ]
-        z = z[final_cols]
-        return z
-
-    def input_from_user(self, query):
+    def input_from_user_zero_shot(self, query):
+        ### Zero shot learning 
         template = """
 "\n
 {summary}\n"
@@ -236,3 +124,80 @@ Please predict sentiment classification of the above based on above text where s
         sec_template = PromptTemplate(template=template, input_variables=["summary"])
         return self.open_ai_llm(template.format(summary=query))
     
+    def input_from_user_embedding_shot(self,query):
+        classifications = ['Strongly Positive','Positive','Neutral','Negative','Strongly Negative']
+        ### Create embeddings
+        embeddings = OpenAIEmbeddings(openai_api_key = open_ai_params["openai_api_key"])
+        ## Create a faiss vector database
+        faiss_classifications = FAISS.from_texts(classifications,embeddings)
+        text = faiss_classifications.similarity_search_with_score(query,k = 1)[0][0].page_content
+        return text
+        
+    def input_from_user_sentiment_file(self,file,type_of_file):
+        if type_of_file not in ['pdf','txt','link','csv']:
+            raise NotImplementedError("This file extension has not been implemented.")
+        if type_of_file == 'pdf':
+            pages = [page.extract_text() for page in pypdf.PdfReader(file).pages]
+            text = '\n'.join(pages)
+
+        if type_of_file in ['txt','csv']:
+            with open(file,'r') as f:
+                text = f.read()
+        
+        if type_of_file == 'link':
+            loader = SeleniumURLLoader(urls=[file])
+            data = loader.load()
+            text = data[0].page_content
+        llm = AI21(temperature=0,ai21_api_key = ai21_params["ai21_api_key"])
+        summary_chain = load_summarize_chain(llm, chain_type="map_reduce")
+        summarize_document_chain = AnalyzeDocumentChain(combine_docs_chain=summary_chain)
+        summary = summarize_document_chain.run(text)
+        final_class = self.input_from_user_embedding_shot(summary)
+        return final_class
+    
+    def query_user(self,file,type_of_file):
+        if type_of_file not in ['pdf','txt','link','csv']:
+            raise NotImplementedError("This file extension has not been implemented.")
+        if type_of_file == 'pdf':
+            pages = [page.extract_text() for page in pypdf.PdfReader(file).pages]
+            text = '\n'.join(pages)
+
+        if type_of_file in ['txt','csv']:
+            with open(file,'r') as f:
+                text = f.read()
+        
+        if type_of_file == 'link':
+            loader = SeleniumURLLoader(urls=[file])
+            data = loader.load()
+            text = data[0].page_content
+        llm = AI21(temperature=0,ai21_api_key = ai21_params["ai21_api_key"])
+        summary_chain = load_summarize_chain(llm, chain_type="map_reduce")
+        summarize_document_chain = AnalyzeDocumentChain(combine_docs_chain=summary_chain)
+        summary = summarize_document_chain.run(text)
+        final_class = self.input_from_user_embedding_shot(summary)
+        return final_class
+    
+    def qachain(self,vectorstore,query):
+        documents = vectorstore.as_retriever(search_kwargs={"k": 1}).get_relevant_documents(query)
+        context_full_doc = []
+        file_names = []
+        for doc in documents:
+            page_content = doc.page_content
+            meta_data = doc.metadata['metadata']
+            ticker = doc.metadata['ticker']
+            context_precursor = '''The below contains information about {} and the information is {}'''.format(ticker,meta_data)
+            context_full= '''{}
+            {}'''.format(context_precursor,page_content)
+            context_full_doc.append(context_full)
+            file_names.append(doc.metadata['file_path'])
+        context_full_doc.append(query)
+        context_full_doc = '\n'.join(context_full_doc)
+        return context_full_doc,file_names
+    
+    def process_file_names(self,file_names):
+        csv_filter = [file_name for file_name in file_names if '.csv' in file_name]
+        df = pd.read_csv(csv_filter[0])
+        df.rename(columns = {'Unnamed: 0':'Description'},inplace = True)
+        return df
+    
+            

@@ -1,8 +1,24 @@
 import yaml
-from datacreator import StockData, EconomyData,Sentiment_Generator,
+from datacreator import StockData, EconomyData,Sentiment_Generator,TextLoader_v1,CSVLoader_v1,FewShot_Sentiment_Generator
 from openbb_terminal.sdk import openbb
+from langchain.embeddings import OpenAIEmbeddings,CohereEmbeddings
 import time
 import pandas as pd
+from langchain.vectorstores import FAISS,Pinecone
+import pinecone
+from langchain.document_loaders import DataFrameLoader,CSVLoader
+from langchain.prompts.example_selector import SemanticSimilarityExampleSelector
+from langchain.prompts import FewShotPromptTemplate, PromptTemplate
+from langchain.document_loaders.csv_loader import CSVLoader
+from langchain.document_loaders import DataFrameLoader
+from langchain.document_loaders.base import BaseLoader
+from langchain.document_loaders import DirectoryLoader
+from langchain.document_loaders import TextLoader
+from langchain.text_splitter import CharacterTextSplitter
+from langchain.chains import RetrievalQA
+from langchain.docstore.document import Document
+from langchain.prompts import PromptTemplate
+
 
 # Open the YAML file and load its contents into a Python object
 with open("apis.yaml", "r") as file:
@@ -38,10 +54,13 @@ ai21_params = {
     "ai21_api_key": yaml_data["LLMS"]["AI21_API_KEY"],
     "maxTokens": 25,
 }
+
+pinecone_key = yaml_data['PINECONE']['API_KEY']
+pinecone_env = yaml_data['PINECONE']['ENV']
 sandp = pd.read_csv('S&P500.csv')
 list_of_stocks = list(sandp['Ticker'])
 
-for stock in list_of_stocks:
+for stock in yaml_data['STOCKS']:
     stock_data = StockData(stock)
     stock_data.initialize_folders()
     stock_data.analysis_file()
@@ -61,5 +80,28 @@ sentiment_generation.collect_news_files()
 sentiment_generation.get_scores()
 sentiment_generation.save_scores()
 
+# #### Few Shot Approach(implemented only for 10 stocks)
 
-#### Few Shot Approach(implemented only for 10 stocks)
+# for stock in yaml_data['STOCKS']:
+#     stock_data = FewShot_Sentiment_Generator('AAPL',open_ai_params,cohere_params,ai21_params)
+#     stock_data.news_chain_analysis()
+    
+    
+#### Generate all files and store in database.
+
+csv_loader = DirectoryLoader('../ticker', glob="**/*.csv", loader_cls=CSVLoader_v1)
+text_loader = DirectoryLoader('../ticker', glob="**/*.txt", loader_cls=TextLoader_v1)
+co = CohereEmbeddings(cohere_api_key=cohere_params["cohere_api_key"])
+oai = OpenAIEmbeddings(openai_api_key = yaml_data["LLMS"]['OPENAI_API_KEY'])
+final_docs = []
+for loader in [csv_loader,text_loader]:
+    docs = loader.load()
+    final_docs.extend(docs)
+text_splitter = CharacterTextSplitter(chunk_size=2000, chunk_overlap=200)
+documents = text_splitter.split_documents(final_docs)
+index_name = 'financial-analysis'
+pinecone.init(
+    api_key=pinecone_key,  # find at app.pinecone.io
+    environment=pinecone_env  # next to api key in console
+)
+docsearch = Pinecone.from_documents(documents, oai, index_name=index_name)

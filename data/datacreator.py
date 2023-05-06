@@ -16,6 +16,7 @@ from langchain.embeddings import OpenAIEmbeddings
 from langchain.llms import Cohere, OpenAI, AI21
 from langchain.vectorstores import FAISS
 from langchain.document_loaders import DataFrameLoader,CSVLoader
+from langchain.document_loaders.base import BaseLoader
 from langchain.prompts.example_selector import SemanticSimilarityExampleSelector
 from langchain.prompts import FewShotPromptTemplate, PromptTemplate
 import logging
@@ -103,6 +104,8 @@ class StockData:
         if self.cash:
             try:
                 df = openbb.stocks.fa.cash(self.ticker).fillna(0)
+                df.index = [x + '(figures in $M)' for x in df.index]
+                df = df/1000000
                 df['ticker'] = self.ticker
                 self.create_file(df, "fa", "cash", ".csv")
             except:
@@ -114,6 +117,8 @@ class StockData:
         if self.balance:
             try:
                 df = openbb.stocks.fa.balance(self.ticker).fillna(0)
+                df.index = [x + '(figures in $M)' for x in df.index]
+                df = df/1000000
                 df.insert(0,'ticker',self.ticker)
                 self.create_file(df, "fa", "balance", ".csv")
             except:
@@ -125,6 +130,14 @@ class StockData:
         if self.est:
             try:
                 df = openbb.stocks.fa.est(self.ticker)[0].fillna(0)
+                add_dict = {'Revenue':'(In $M)','EBIT':'(In $M)','EBITDA':'(In $M)','Net Profit':'(In $M)','Net Profit Adjusted':'(In $M)',
+'Pre-Tax Profit':'(In $M)','Net Profit (Adjusted)':'(In $M)','EPS (Non-GAAP) ex. SOE':'(In $)',\
+'EPS (GAAP)':'(In $)','Gross Income':'(In $M)','Cash Flow from Investing':'(In $M)',\
+'Cash Flow from Financing':'(In $M)','Cash Flow from Operations':'(In $M)','Cash Flow per Share':'(In $)',\
+'Free Cash Flow':'(In $M)','Free Cash Flow per Share':'(In $)','Book Value per Share':'(In $)',\
+'Net Debt':'(In $M)','Research & Development Exp.':'(In $M)','Capital Expenditure':'(In $M)',\
+'Selling, General & Admin. Exp.':'(In $M)','Shareholder’s Equity':'(In $M)','Total Assets':'(In $M)'}
+                df.index = [x + add_dict[x] if x in add_dict.keys() else x for x in df.index]
                 df.insert(0,'ticker',self.ticker)
                 self.create_file(df, "fa", "est", ".csv")
             except:
@@ -136,6 +149,8 @@ class StockData:
         if self.est:
             try:
                 df = openbb.stocks.fa.fraud(self.ticker).fillna(0)
+                if df.shape[0] == 3:
+                    df.index = ['Manipulation score(Fraud)','Altman Z-score(Fraud)','McKee ratio(Fraud)']
                 df = df[df.columns[::-1]]
                 df.insert(0,'ticker',self.ticker)
                 self.create_file(df, "fa", "fraud", ".csv")
@@ -148,6 +163,8 @@ class StockData:
         if self.est:
             try:
                 df = openbb.stocks.fa.income(self.ticker)
+                df.index = [x + '(figures in $M)' for x in df.index]
+                df = df/1000000
                 df.insert(0,'ticker',self.ticker)
                 self.create_file(df, "fa", "income", ".csv")
             except:
@@ -466,7 +483,7 @@ class SemanticSimilarityExampleSelector_from_db(SemanticSimilarityExampleSelecto
                 " ".join(sorted_values({k: eg[k] for k in input_keys}))
                 for eg in examples
             ]
-            #import pdb;pdb.set_trace()
+
         else:
             #import pdb;pdb.set_trace()
             string_examples = ["\n".join(sorted_values(eg)) for eg in examples]
@@ -513,4 +530,75 @@ class Sentiment_Generator:
         
     def save_scores(self):
         self.document_file.to_csv('output/sentiment_scores.csv')
+
         
+### Own csvloader
+class CSVLoader_v1(BaseLoader):
+    """Loads a CSV file into a list of documents.
+    Each document represents one row of the CSV file. Every row is converted into a
+    key/value pair and outputted to a new line in the document's page_content.
+    The source for each document loaded from csv is set to the value of the
+    `file_path` argument for all doucments by default.
+    You can override this by setting the `source_column` argument to the
+    name of a column in the CSV file.
+    The source of each document will then be set to the value of the column
+    with the name specified in `source_column`.
+    Output Example:
+        .. code-block:: txt
+            column1: value1
+            column2: value2
+            column3: value3
+    """
+
+    def __init__(
+        self,
+        file_path: str,
+        source_column= None,
+        encoding = None,
+    ):
+        self.file_path = file_path
+        self.source_column = source_column
+        self.encoding = encoding
+    def load(self):
+        """Load data into document objects."""
+
+        docs = []
+        with open(self.file_path,'r') as f:
+            #import pdb;pdb.set_trace()
+            ticker = self.file_path.split('/')[2]
+            meta_data = self.file_path.split('.')[-2].split('/')[-1]
+            dict1 = {'balance':'Balance Sheet','cash':'Cash Flow','income':'Income Statement',\
+                    'ratios':'Key Financial Ratios','est':'Analyst Estimates','fraud':'Fraud Ratios',
+                    'c_news':'News','s_news':'Sentiment News'}
+            if meta_data in dict1.keys():
+                meta_data = dict1[meta_data]
+            metadata = {"ticker": ticker, "metadata": meta_data,"file_path": self.file_path}
+            file_content = f.read()
+        doc = Document(page_content=file_content, metadata=metadata)
+        return [doc]
+
+### Own textloader
+class TextLoader_v1(BaseLoader):
+    def __init__(
+        self,
+        file_path: str,
+        source_column= None,
+        encoding = None,
+    ):
+        self.file_path = file_path
+        self.source_column = source_column
+        self.encoding = encoding
+    def load(self):
+        """Load data into document objects."""
+
+        docs = []
+        with open(self.file_path,'r') as f:
+            ticker = self.file_path.split('/')[2]
+            meta_data = self.file_path.split('.')[-2].split('/')[-1]
+            dict1 = {'analysis_sec':'SEC analysis summary'}
+            if meta_data in dict1.keys():
+                meta_data = dict1[meta_data]
+            metadata = {"ticker": ticker, "metadata": meta_data,"file_path": self.file_path}
+            file_content = f.read()
+        doc = Document(page_content=file_content, metadata=metadata)
+        return [doc]
