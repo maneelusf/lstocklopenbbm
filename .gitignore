@@ -4,9 +4,12 @@ i.csv
 __pycache__/
 .ipynb_checkpoints/
 ./data/apis.yaml
-.i/data/APIS.yaml
+./data/APIS.yaml
 ticker/
 economy/
 .ipynb
+./data/faiss_index
+./data/faiss_sentiment
+./data/faiss_entiredocument
 
 
