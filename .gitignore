@@ -1,10 +1,12 @@
-.csv
+i.csv
 .DS_Store
 *.yaml
 __pycache__/
 .ipynb_checkpoints/
 ./data/apis.yaml
 .i/data/APIS.yaml
-data/
 ticker/
 economy/
+.ipynb
+
+
