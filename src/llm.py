@@ -16,7 +16,6 @@ from langchain.vectorstores import FAISS
 from langchain.document_loaders import DataFrameLoader,CSVLoader,SeleniumURLLoader
 from langchain.docstore.document import Document
 from langchain.chains.summarize import load_summarize_chain
-import pypdf
 import os
 
 with open("../data/apis.yaml", "r") as file:
@@ -178,7 +177,11 @@ Please predict sentiment classification of the above based on above text where s
         return final_class
     
     def qachain(self,vectorstore,query):
-        documents = vectorstore.as_retriever(search_kwargs={"k": 1}).get_relevant_documents(query)
+        if self.ticker == None:
+            documents = vectorstore.similarity_search(query)
+        else:
+            documents = vectorstore.similarity_search(query,k = 1,filter = {'ticker':self.ticker})
+        #documents = vectorstore.as_retriever(search_kwargs={"k": 1}).get_relevant_documents(query)
         context_full_doc = []
         file_names = []
         for doc in documents:
