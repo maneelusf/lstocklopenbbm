@@ -16,7 +16,8 @@ from langchain.embeddings import OpenAIEmbeddings
 from langchain.llms import Cohere, OpenAI, AI21
 from llm import LLM_analysis
 # import pinecone
-with open('../data/apis.yaml', 'r') as file:
+main_path = os.path.join(os.getcwd(),'src/')
+with open(main_path + '../data/apis.yaml', 'r') as file:
     yaml_data = yaml.load(file, Loader=yaml.FullLoader)
 # pinecone.init(api_key= yaml_data['PINECONE']['API_KEY'],environment= yaml_data['PINECONE']['ENV'])
 index_name = "financial-analysis"
@@ -37,7 +38,7 @@ ai21_params = {
     "maxTokens": 2000,
 }
 oai = OpenAIEmbeddings(openai_api_key = open_ai_params['openai_api_key'])
-faiss_db = FAISS.load_local(folder_path = '../data/entiredocument',embeddings = oai)
+faiss_db = FAISS.load_local(folder_path = main_path + '../data/entiredocument',embeddings = oai)
 llm = Cohere(**cohere_params)
 #import pyfolio as pf
 
@@ -142,7 +143,7 @@ def tab1():
         st.header("Sentiment Analysis")
         color = st.select_slider('Select a sentiment type',
     options=['Strongly Positive', 'Positive', 'Neutral', 'Negative', 'Strongly Negative'])
-        df = pd.read_csv('../data/output/sentiment_scores.csv')
+        df = pd.read_csv(main_path + '../data/output/sentiment_scores.csv')
         df = df[(df['ticker'] == ticker) & (df['similarity'] == color)][['headline','similarity']]
         df.columns = ['Headline','Similarity']
         hide_dataframe_row_index = """
@@ -641,7 +642,7 @@ def run():
     
     # Add the ticker selection on the sidebar
     # Get the list of stock tickers from S&P500
-    ticker_list = os.listdir('../ticker')
+    ticker_list = os.listdir(main_path + '../ticker')
     ticker_list = sorted(ticker_list)
     ticker_list = [ticker for ticker in ticker_list if ticker!='.DS_Store']
     ticker_list.insert(0,'-')
