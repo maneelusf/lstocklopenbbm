@@ -6,3 +6,4 @@ langchain==0.0.150
 cohere
 faiss-cpu
 yahoo_fin
+fuzzywuzzy
