@@ -1,10 +1,9 @@
+python 3.9
 openbb
 google-search-results
-fuzzywuzzy
 openai
 pyyaml
 langchain
 cohere
 faiss-cpu
-pypdf
 yahoo_fin
