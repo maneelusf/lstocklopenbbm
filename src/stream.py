@@ -15,12 +15,12 @@ from langchain.vectorstores import FAISS,Pinecone
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.llms import Cohere, OpenAI, AI21
 from llm import LLM_analysis
-import pinecone
+# import pinecone
 
 
 with open('../data/apis.yaml', 'r') as file:
     yaml_data = yaml.load(file, Loader=yaml.FullLoader)
-pinecone.init(api_key= yaml_data['PINECONE']['API_KEY'],environment= yaml_data['PINECONE']['ENV'])
+# pinecone.init(api_key= yaml_data['PINECONE']['API_KEY'],environment= yaml_data['PINECONE']['ENV'])
 index_name = "financial-analysis"
 open_ai_params = {'max_tokens':1000,'openai_api_key' : yaml_data['LLMS']['OPENAI_API_KEY'],'temperature' :0,'model_name':'text-davinci-003'}
 cohere_params = {
