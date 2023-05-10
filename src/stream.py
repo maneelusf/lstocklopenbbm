@@ -16,8 +16,6 @@ from langchain.embeddings import OpenAIEmbeddings
 from langchain.llms import Cohere, OpenAI, AI21
 from llm import LLM_analysis
 # import pinecone
-
-
 with open('../data/apis.yaml', 'r') as file:
     yaml_data = yaml.load(file, Loader=yaml.FullLoader)
 # pinecone.init(api_key= yaml_data['PINECONE']['API_KEY'],environment= yaml_data['PINECONE']['ENV'])
@@ -654,7 +652,7 @@ def run():
     
     
     # Add a radio box
-    select_tab = st.sidebar.radio("Select tab", ['Summary', 'Chart', 'Financials', 'Analysis', 'Monte Carlo Simulation', "Your Portfolio's Trend"])
+    select_tab = st.sidebar.radio("Select tab", ['Summary'])
     
     # Show the selected tab
     if select_tab == 'Summary':

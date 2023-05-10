@@ -17,7 +17,7 @@ from langchain.document_loaders import DataFrameLoader,CSVLoader,SeleniumURLLoad
 from langchain.docstore.document import Document
 from langchain.chains.summarize import load_summarize_chain
 import os
-
+print(os.getcwd())
 with open("../data/apis.yaml", "r") as file:
     yaml_data = yaml.load(file, Loader=yaml.FullLoader)
 open_ai_params = {
