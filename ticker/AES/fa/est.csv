@@ -1,0 +1,28 @@
+,ticker,2023,2024,2025,2026,2027
+Revenue(In $M),AES,"12,902","13,639","14,149","18,994","20,557"
+Dividend,AES,0.68,0.72,0.74,0.79,0.83
+Dividend Yield (in %),AES,2.93 %,3.02 %,3.17 %,3.39 %,3.58 %
+EPS,AES,1.71,1.92,2.10,2.29,2.46
+P/E Ratio,AES,13.17,11.73,10.73,9.86,9.16
+EBIT(In $M),AES,"2,949","3,305","4,022","4,452","4,804"
+EBITDA(In $M),AES,"4,427","4,963","5,450","6,181","6,693"
+Net Profit(In $M),AES,"1,291","1,461","1,655","1,991","2,174"
+Net Profit Adjusted(In $M),AES,"1,215","1,363","1,463","1,607","1,744"
+Pre-Tax Profit(In $M),AES,"2,045","2,300","2,586","2,846","3,101"
+Net Profit (Adjusted)(In $M),AES,"2,179","2,491","2,725",-,-
+EPS (Non-GAAP) ex. SOE(In $),AES,1.71,1.92,2.10,2.29,2.46
+EPS (GAAP)(In $),AES,1.70,1.95,2.35,2.26,2.45
+Gross Income(In $M),AES,"4,197","4,616","4,972",-,-
+Cash Flow from Investing(In $M),AES,"-3,792","-4,486","-4,474","-4,893","-5,290"
+Cash Flow from Operations(In $M),AES,"2,892","3,575","3,648","3,943","4,950"
+Cash Flow from Financing(In $M),AES,720,947,823,734,366
+Cash Flow per Share(In $),AES,3.82,4.35,5.13,-,-
+Free Cash Flow(In $M),AES,854,"1,049","1,075","1,275",-
+Free Cash Flow per Share(In $),AES,1.35,1.51,1.63,1.74,1.87
+Book Value per Share(In $),AES,4.20,6.16,7.88,-,-
+Net Debt(In $M),AES,"23,892","25,931","28,017",-,-
+Research & Development Exp.(In $M),AES,-,-,-,-,-
+Capital Expenditure(In $M),AES,"4,038","5,425","5,324","5,218","5,108"
+"Selling, General & Admin. Exp.(In $M)",AES,57,57,57,-,-
+Shareholder’s Equity(In $M),AES,"3,788","4,872","5,787","6,299","9,416"
+Total Assets(In $M),AES,"39,945","43,042","45,876","50,044","58,230"

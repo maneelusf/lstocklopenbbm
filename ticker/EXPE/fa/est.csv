@@ -1,0 +1,28 @@
+,ticker,2023,2024,2025,2026,2027
+Revenue(In $M),EXPE,"12,885","14,072","15,245","17,113","17,967"
+Dividend,EXPE,0.14,0.27,0.53,2.18,0.73
+Dividend Yield (in %),EXPE,0.16 %,0.35 %,0.65 %,2.31 %,0.78 %
+EPS,EXPE,9.38,11.50,13.31,15.57,16.37
+P/E Ratio,EXPE,9.65,7.87,6.80,5.81,5.53
+EBIT(In $M),EXPE,"1,615","1,953","2,293","2,581","2,568"
+EBITDA(In $M),EXPE,"2,732","3,087","3,340","3,781","3,973"
+Net Profit(In $M),EXPE,"1,401","1,672","1,946","2,155","2,180"
+Net Profit Adjusted(In $M),EXPE,"1,417","1,687","1,946","2,155","2,180"
+Pre-Tax Profit(In $M),EXPE,"1,413","1,753","2,116","2,462","2,420"
+Net Profit (Adjusted)(In $M),EXPE,"1,325","1,675","1,983","2,084","2,420"
+EPS (Non-GAAP) ex. SOE(In $),EXPE,8.00,9.50,8.64,9.92,-
+EPS (GAAP)(In $),EXPE,7.01,9.04,10.42,12.54,15.15
+Gross Income(In $M),EXPE,"11,081","12,079","12,993",-,-
+Cash Flow from Investing(In $M),EXPE,-687,-701,-687,-,-
+Cash Flow from Operations(In $M),EXPE,"2,408","2,908","2,799","3,012",-
+Cash Flow from Financing(In $M),EXPE,-645,-692,"-1,227",-,-
+Cash Flow per Share(In $),EXPE,18.07,20.96,27.58,-,-
+Free Cash Flow(In $M),EXPE,"2,431","2,783","2,985","2,778",-
+Free Cash Flow per Share(In $),EXPE,9.43,11.60,-,-,-
+Book Value per Share(In $),EXPE,22.18,27.87,36.97,-,-
+Net Debt(In $M),EXPE,-128,"-1,795","-4,325","-4,492",-
+Research & Development Exp.(In $M),EXPE,"1,213","1,345","1,419","1,595","1,682"
+Capital Expenditure(In $M),EXPE,697,723,760,784,566
+"Selling, General & Admin. Exp.(In $M)",EXPE,"8,394","9,088",-,-,-
+Shareholder’s Equity(In $M),EXPE,"3,866","4,722","5,969","8,059","12,253"
+Total Assets(In $M),EXPE,"22,517","24,076","26,040","27,163",-

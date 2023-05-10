@@ -1,0 +1,28 @@
+,ticker,2023,2024,2025,2026,2027
+Revenue(In $M),LEG,"4,933","5,039","5,269","5,334","5,463"
+Dividend,LEG,-,1.87,1.94,2.00,2.08
+Dividend Yield (in %),LEG,5.00 %,6.01 %,6.24 %,6.43 %,6.69 %
+EPS,LEG,1.63,1.81,2.11,2.06,2.20
+P/E Ratio,LEG,19.81,17.89,15.30,15.67,14.68
+EBIT(In $M),LEG,371,395,466,455,479
+EBITDA(In $M),LEG,571,604,677,672,704
+Net Profit(In $M),LEG,219,238,290,286,304
+Net Profit Adjusted(In $M),LEG,226,245,266,286,304
+Pre-Tax Profit(In $M),LEG,286,313,382,376,401
+Net Profit (Adjusted)(In $M),LEG,-,-,-,-,-
+EPS (Non-GAAP) ex. SOE(In $),LEG,1.63,1.81,2.11,2.06,2.20
+EPS (GAAP)(In $),LEG,1.58,1.60,1.92,2.06,2.20
+Gross Income(In $M),LEG,870,884,961,999,"1,038"
+Cash Flow from Investing(In $M),LEG,-122,-123,-145,-145,-145
+Cash Flow from Operations(In $M),LEG,472,441,497,525,545
+Cash Flow from Financing(In $M),LEG,-303,-414,-384,-365,-375
+Cash Flow per Share(In $),LEG,-,-,-,-,-
+Free Cash Flow(In $M),LEG,361,330,352,380,400
+Free Cash Flow per Share(In $),LEG,-,-,-,-,-
+Book Value per Share(In $),LEG,12.00,11.56,-,-,-
+Net Debt(In $M),LEG,"1,676","1,601","1,538","1,602","1,577"
+Research & Development Exp.(In $M),LEG,-,-,-,-,-
+Capital Expenditure(In $M),LEG,123,123,145,145,145
+"Selling, General & Admin. Exp.(In $M)",LEG,442,451,472,487,502
+Shareholder’s Equity(In $M),LEG,"2,818","3,228","1,634","1,595","1,564"
+Total Assets(In $M),LEG,"5,153","4,976","5,094","5,070","5,054"

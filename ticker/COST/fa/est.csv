@@ -1,0 +1,28 @@
+,ticker,2023,2024,2025,2026,2027
+Revenue(In $M),COST,"242,537","256,393","273,086","293,153","311,214"
+Dividend,COST,3.40,3.80,3.65,4.17,4.32
+Dividend Yield (in %),COST,0.70 %,0.78 %,0.76 %,0.87 %,0.90 %
+EPS,COST,14.43,15.56,17.17,19.40,21.56
+P/E Ratio,COST,34.00,31.53,28.57,25.28,22.75
+EBIT(In $M),COST,"8,414","9,111","10,021","11,176","12,212"
+EBITDA(In $M),COST,"10,653","11,434","12,519","14,204","15,915"
+Net Profit(In $M),COST,"6,424","6,925","7,649","8,623","9,583"
+Net Profit Adjusted(In $M),COST,"6,448","6,915","7,607","8,229","9,007"
+Pre-Tax Profit(In $M),COST,"8,618","9,324","10,298","11,775","13,136"
+Net Profit (Adjusted)(In $M),COST,"8,638","9,220","10,289",-,-
+EPS (Non-GAAP) ex. SOE(In $),COST,14.43,15.56,17.17,19.40,21.56
+EPS (GAAP)(In $),COST,14.56,15.78,17.60,20.25,22.98
+Gross Income(In $M),COST,"27,540","29,222","29,954","32,571","34,816"
+Cash Flow from Investing(In $M),COST,"-3,958","-4,105","-4,091","-4,147","-4,284"
+Cash Flow from Operations(In $M),COST,"10,597","10,138","10,817","11,692","12,434"
+Cash Flow from Financing(In $M),COST,"-3,038","-3,108",-,-,-
+Cash Flow per Share(In $),COST,21.45,22.14,24.80,-,-
+Free Cash Flow(In $M),COST,"6,055","6,279","7,637","8,665","9,738"
+Free Cash Flow per Share(In $),COST,14.89,16.23,17.44,19.40,21.78
+Book Value per Share(In $),COST,57.59,69.45,82.62,91.03,105.53
+Net Debt(In $M),COST,"-3,719","-5,881","-12,156",-,-
+Research & Development Exp.(In $M),COST,-,-,-,-,-
+Capital Expenditure(In $M),COST,"3,989","4,138","4,229","4,209","4,381"
+"Selling, General & Admin. Exp.(In $M)",COST,"21,178","22,377","23,140","23,932","25,116"
+Shareholder’s Equity(In $M),COST,"25,207","29,644","35,924","40,468","47,041"
+Total Assets(In $M),COST,"71,192","75,239","84,894","93,192","101,254"

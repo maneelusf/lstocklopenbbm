@@ -1,0 +1,28 @@
+,ticker,2023,2024,2025,2026,2027
+Revenue(In $M),VLO,"146,678","130,889","115,881",-,-
+Dividend,VLO,4.09,4.23,4.31,3.92,-
+Dividend Yield (in %),VLO,3.07 %,3.14 %,3.23 %,-,-
+EPS,VLO,23.65,14.55,12.49,8.55,7.25
+P/E Ratio,VLO,4.41,7.17,8.35,12.20,14.39
+EBIT(In $M),VLO,"11,511","7,176","6,103","5,108",-
+EBITDA(In $M),VLO,"14,259","9,782","8,413","6,597","5,874"
+Net Profit(In $M),VLO,"8,520","4,891","3,781","3,283","2,851"
+Net Profit Adjusted(In $M),VLO,"8,539","4,871","3,838","3,283","2,851"
+Pre-Tax Profit(In $M),VLO,"11,229","6,381","5,270","4,000","3,530"
+Net Profit (Adjusted)(In $M),VLO,"10,988","6,904","4,869",-,-
+EPS (Non-GAAP) ex. SOE(In $),VLO,23.65,14.55,12.49,8.55,7.25
+EPS (GAAP)(In $),VLO,23.51,14.74,12.21,6.30,7.25
+Gross Income(In $M),VLO,"20,947","15,382","9,825",-,-
+Cash Flow from Investing(In $M),VLO,"-1,231","-1,272",-562,"-2,000","-2,000"
+Cash Flow from Operations(In $M),VLO,"11,938","8,616","7,064","5,147","5,353"
+Cash Flow from Financing(In $M),VLO,"-5,757","-4,943","-4,490","-4,876","-3,161"
+Cash Flow per Share(In $),VLO,32.64,24.15,21.89,17.05,18.02
+Free Cash Flow(In $M),VLO,"9,199","6,115","4,288","4,360",-
+Free Cash Flow per Share(In $),VLO,27.80,19.72,12.52,-,-
+Book Value per Share(In $),VLO,75.05,81.76,83.26,-,-
+Net Debt(In $M),VLO,"3,114","1,762",245,"-2,024",-
+Research & Development Exp.(In $M),VLO,-,-,-,-,-
+Capital Expenditure(In $M),VLO,"1,694","1,779",-,"1,709","1,141"
+"Selling, General & Admin. Exp.(In $M)",VLO,935,938,-,-,-
+Shareholder’s Equity(In $M),VLO,"27,328","28,431","29,281","32,426","32,988"
+Total Assets(In $M),VLO,"62,259","63,895","64,840",-,-

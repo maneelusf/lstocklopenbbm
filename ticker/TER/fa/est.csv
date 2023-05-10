@@ -1,0 +1,28 @@
+,ticker,2023,2024,2025
+Revenue(In $M),TER,"2,717","3,333","3,756"
+Dividend,TER,0.45,0.50,0.53
+Dividend Yield (in %),TER,0.45 %,0.48 %,0.52 %
+EPS,TER,2.77,4.61,5.94
+P/E Ratio,TER,32.50,19.54,15.16
+EBIT(In $M),TER,534,907,"1,131"
+EBITDA(In $M),TER,676,"1,026","1,201"
+Net Profit(In $M),TER,451,739,947
+Net Profit Adjusted(In $M),TER,452,752,995
+Pre-Tax Profit(In $M),TER,545,866,"1,092"
+Net Profit (Adjusted)(In $M),TER,881,"1,156",992
+EPS (Non-GAAP) ex. SOE(In $),TER,2.77,4.61,5.94
+EPS (GAAP)(In $),TER,2.75,4.74,6.35
+Gross Income(In $M),TER,"1,593","1,985","2,248"
+Cash Flow from Investing(In $M),TER,-236,-186,-270
+Cash Flow from Operations(In $M),TER,585,864,894
+Cash Flow from Financing(In $M),TER,-539,-530,-410
+Cash Flow per Share(In $),TER,3.48,5.68,6.81
+Free Cash Flow(In $M),TER,353,575,626
+Free Cash Flow per Share(In $),TER,2.25,3.88,-
+Book Value per Share(In $),TER,15.87,16.75,19.18
+Net Debt(In $M),TER,-651,-438,-604
+Research & Development Exp.(In $M),TER,445,481,477
+Capital Expenditure(In $M),TER,158,158,180
+"Selling, General & Admin. Exp.(In $M)",TER,553,568,622
+Shareholder’s Equity(In $M),TER,"2,445","2,663","2,988"
+Total Assets(In $M),TER,"3,308","3,575","3,927"

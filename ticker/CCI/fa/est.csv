@@ -1,0 +1,28 @@
+,ticker,2023,2024,2025,2026,2027
+Revenue(In $M),CCI,"7,188","7,111","7,109","7,439","7,717"
+Dividend,CCI,6.30,6.43,6.56,-,7.65
+Dividend Yield (in %),CCI,4.80 %,4.92 %,5.03 %,4.79 %,-
+EPS,CCI,3.75,3.46,3.16,3.26,3.43
+P/E Ratio,CCI,31.35,34.03,37.24,36.16,34.36
+EBIT(In $M),CCI,"2,485","2,419","2,420","2,509","2,697"
+EBITDA(In $M),CCI,"4,459","4,367","4,328","4,542","4,715"
+Net Profit(In $M),CCI,"1,631","1,493","1,378","1,434","1,517"
+Net Profit Adjusted(In $M),CCI,"1,622","1,514","1,427","1,546","1,663"
+Pre-Tax Profit(In $M),CCI,"1,651","1,528","1,434","1,461","1,546"
+Net Profit (Adjusted)(In $M),CCI,"1,650","1,530","1,440","1,461","1,546"
+EPS (Non-GAAP) ex. SOE(In $),CCI,3.77,3.54,3.32,-,-
+EPS (GAAP)(In $),CCI,3.75,3.46,3.16,3.26,3.43
+Gross Income(In $M),CCI,"5,067","4,959","4,938","5,226","5,457"
+Cash Flow from Investing(In $M),CCI,"-1,547","-1,410","-1,493",-,-
+Cash Flow from Operations(In $M),CCI,"3,575","3,766","3,860",-,-
+Cash Flow from Financing(In $M),CCI,"-1,930","-2,605","-3,375",-,-
+Cash Flow per Share(In $),CCI,7.73,7.95,8.51,-,-
+Free Cash Flow(In $M),CCI,"2,141","2,264","2,273","1,864","2,021"
+Free Cash Flow per Share(In $),CCI,5.00,5.33,5.28,4.20,4.52
+Book Value per Share(In $),CCI,15.46,13.54,9.06,-,-
+Net Debt(In $M),CCI,"23,119","23,883","24,883","24,901","25,945"
+Research & Development Exp.(In $M),CCI,-,-,-,-,-
+Capital Expenditure(In $M),CCI,"1,501","1,487","1,552","1,640","1,650"
+"Selling, General & Admin. Exp.(In $M)",CCI,786,794,805,-,-
+Shareholder’s Equity(In $M),CCI,"6,469","5,329","4,086",371,"-1,524"
+Total Assets(In $M),CCI,"39,487","39,579","40,448","39,972","40,771"

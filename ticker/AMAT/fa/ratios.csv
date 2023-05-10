@@ -1,0 +1,55 @@
+,2022,2021,2020,2019,2018,ticker
+Current ratio,2.158,2.539,2.998,2.295,2.642,AMAT
+Quick ratio,1.172,1.641,1.951,1.383,1.613,AMAT
+Cash ratio,0.270,0.787,1.200,0.704,0.846,AMAT
+Days of sales outstanding,85.896,78.387,62.870,63.290,53.587,AMAT
+Days of inventory outstanding,156.988,129.458,149.838,154.222,143.973,AMAT
+Operating cycle,242.884,207.845,212.708,217.512,197.561,AMAT
+Days of payables outstanding,46.445,44.224,43.140,42.529,38.527,AMAT
+Cash conversion cycle,196.438,163.621,169.569,174.983,159.034,AMAT
+Gross profit margin,0.465,0.473,0.447,0.437,0.453,AMAT
+Operating profit margin,0.302,0.299,0.254,0.229,0.278,AMAT
+Pretax profit margin,0.295,0.294,0.242,0.224,0.272,AMAT
+Net profit margin,0.253,0.255,0.210,0.185,0.192,AMAT
+Effective tax rate,0.141,0.130,0.131,0.172,0.294,AMAT
+Return on assets,0.244,0.228,0.162,0.142,0.186,AMAT
+Return on equity,0.535,0.481,0.342,0.329,0.484,AMAT
+Return on capital employed,0.403,0.354,0.244,0.230,0.350,AMAT
+Net income per EBT,0.859,0.870,0.869,0.828,0.706,AMAT
+Ebt per ebit,0.976,0.983,0.954,0.976,0.979,AMAT
+Ebit per revenue,0.302,0.299,0.254,0.229,0.278,AMAT
+Debt ratio,0.544,0.526,0.527,0.568,0.615,AMAT
+Debt equity ratio,0.454,0.451,0.521,0.647,0.776,AMAT
+Long term debt to capitalization,0.309,0.308,0.340,0.365,0.437,AMAT
+Total debt to capitalization,0.312,0.311,0.343,0.393,0.437,AMAT
+Interest coverage,34.158,29.191,18.188,14.135,20.496,AMAT
+Cash flow to debt ratio,0.974,0.985,0.690,0.611,0.713,AMAT
+Company equity multiplier,2.192,2.109,2.113,2.316,2.599,AMAT
+Receivables turnover,4.249,4.656,5.806,5.767,6.811,AMAT
+Payables turnover,7.859,8.253,8.461,8.582,9.474,AMAT
+Inventory turnover,2.325,2.819,2.436,2.367,2.535,AMAT
+Fixed asset turnover,11.177,11.925,10.724,9.554,12.262,AMAT
+Asset turnover,0.965,0.893,0.770,0.768,0.971,AMAT
+Operating cash flow per share,6.199,5.980,4.153,3.465,3.738,AMAT
+Free cash flow per share,5.295,5.246,3.692,2.995,3.124,AMAT
+Cash per share,2.963,5.999,6.264,3.861,3.978,AMAT
+Payout ratio,0.134,0.142,0.217,0.285,0.183,AMAT
+Operating cash flow sales ratio,0.209,0.236,0.221,0.222,0.219,AMAT
+Free cash flow operating cash flow ratio,0.854,0.877,0.889,0.864,0.836,AMAT
+Cash flow coverage ratios,0.974,0.985,0.690,0.611,0.713,AMAT
+Short term coverage ratios,63.518,74.548,59.438,5.412,0,AMAT
+Capital expenditure coverage ratio,-6.860,-8.147,-9.014,-7.363,-6.088,AMAT
+Dividend paid and capex coverage ratio,62.779,32.012,10.422,9.839,-222.765,AMAT
+Dividend payout ratio,0.134,0.142,0.217,0.285,0.183,AMAT
+Price book value ratio,6.306,10.366,5.153,6.496,4.610,AMAT
+Price to book ratio,6.306,10.366,5.153,6.496,4.610,AMAT
+Price to sales ratio,2.982,5.505,3.169,3.653,1.827,AMAT
+Price earnings ratio,11.786,21.561,15.062,19.720,9.515,AMAT
+Price to free cash flows ratio,16.674,26.593,16.118,19.017,9.960,AMAT
+Price to operating cash flows ratio,14.243,23.329,14.330,16.434,8.324,AMAT
+Price cash flow ratio,14.243,23.329,14.330,16.434,8.324,AMAT
+Price earnings to growth ratio,0.748,0.338,0.411,-1.697,4.350,AMAT
+Price sales ratio,2.982,5.505,3.169,3.653,1.827,AMAT
+Dividend yield,0.011,0.007,0.014,0.014,0.019,AMAT
+Enterprise value multiple,9.721,16.521,11.420,14.357,6.201,AMAT
+Price fair value,6.306,10.366,5.153,6.496,4.610,AMAT

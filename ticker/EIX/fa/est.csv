@@ -1,0 +1,28 @@
+,ticker,2023,2024,2025,2026,2027
+Revenue(In $M),EIX,"17,481","18,123","18,492","19,257","19,879"
+Dividend,EIX,2.94,3.08,3.24,3.37,3.42
+Dividend Yield (in %),EIX,4.30 %,4.52 %,4.73 %,4.93 %,5.01 %
+EPS,EIX,4.73,5.11,5.55,6.00,6.16
+P/E Ratio,EIX,15.32,14.20,13.08,12.09,11.79
+EBIT(In $M),EIX,"3,663","3,997","4,311","4,367","4,668"
+EBITDA(In $M),EIX,"6,379","6,847","7,278","7,532","7,983"
+Net Profit(In $M),EIX,"1,811","1,966","2,135","2,294","2,373"
+Net Profit Adjusted(In $M),EIX,"1,811","1,966","2,135","2,294","2,373"
+Pre-Tax Profit(In $M),EIX,"2,485","2,693","2,895","2,836","3,014"
+Net Profit (Adjusted)(In $M),EIX,"2,345","2,613","2,841",-,-
+EPS (Non-GAAP) ex. SOE(In $),EIX,4.73,5.11,5.55,6.00,6.16
+EPS (GAAP)(In $),EIX,4.52,4.94,5.33,5.44,5.83
+Gross Income(In $M),EIX,"11,266","11,709","12,083",-,-
+Cash Flow from Investing(In $M),EIX,"-5,700","-5,200","-5,300","-6,700","-6,700"
+Cash Flow from Operations(In $M),EIX,"4,290","4,705","5,079","6,440","5,893"
+Cash Flow from Financing(In $M),EIX,670,-262,74,"1,324",934
+Cash Flow per Share(In $),EIX,11.48,12.09,12.14,-,-
+Free Cash Flow(In $M),EIX,-974,-164,146,"1,450",-
+Free Cash Flow per Share(In $),EIX,-3.86,-1.70,-1.91,-,-
+Book Value per Share(In $),EIX,39.68,41.99,44.56,-,-
+Net Debt(In $M),EIX,"34,287","35,809","37,553","39,641","40,942"
+Research & Development Exp.(In $M),EIX,-,-,-,-,-
+Capital Expenditure(In $M),EIX,"5,725","5,525","5,850","5,967","6,001"
+"Selling, General & Admin. Exp.(In $M)",EIX,"5,204","5,204","5,204",-,-
+Shareholder’s Equity(In $M),EIX,"17,863","18,883","19,964","22,195","22,587"
+Total Assets(In $M),EIX,"80,836","84,008","87,297","89,541","92,974"

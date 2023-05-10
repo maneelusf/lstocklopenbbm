@@ -1,0 +1,55 @@
+,2022,2021,2020,2019,2018,ticker
+Current ratio,1.618,1.549,1.360,2.009,1.863,XRAY
+Quick ratio,0.852,0.916,0.844,1.192,0.998,XRAY
+Cash ratio,0.312,0.286,0.333,0.407,0.306,XRAY
+Days of sales outstanding,58.817,64.139,73.502,70.840,64.268,XRAY
+Days of inventory outstanding,127.496,97.333,100.944,109.984,113.942,XRAY
+Operating cycle,186.313,161.472,174.446,180.824,178.211,XRAY
+Days of payables outstanding,56.733,51.757,66.068,60.288,54.013,XRAY
+Cash conversion cycle,129.580,109.716,108.378,120.536,124.198,XRAY
+Gross profit margin,0.542,0.555,0.496,0.537,0.519,XRAY
+Operating profit margin,0.078,0.146,0.136,0.130,0.098,XRAY
+Pretax profit margin,-0.269,0.131,-0.018,0.086,-0.240,XRAY
+Net profit margin,-0.242,0.099,-0.025,0.065,-0.254,XRAY
+Effective tax rate,0.100,0.247,-0.383,0.238,-0.055,XRAY
+Return on assets,-0.124,0.046,-0.009,0.031,-0.116,XRAY
+Return on equity,-0.249,0.083,-0.017,0.052,-0.197,XRAY
+Return on capital employed,0.047,0.077,0.057,0.069,0.051,XRAY
+Net income per EBT,0.900,0.753,1.383,0.761,1.055,XRAY
+Ebt per ebit,-3.448,0.899,-0.132,0.661,-2.448,XRAY
+Ebit per revenue,0.078,0.146,0.136,0.130,0.098,XRAY
+Debt ratio,0.501,0.453,0.468,0.408,0.409,XRAY
+Debt equity ratio,0.549,0.444,0.484,0.305,0.324,XRAY
+Long term debt to capitalization,0.341,0.290,0.298,0.234,0.234,XRAY
+Total debt to capitalization,0.354,0.308,0.326,0.234,0.244,XRAY
+Interest coverage,5.100,11.309,9.500,17.765,10.496,XRAY
+Cash flow to debt ratio,0.247,0.293,0.264,0.407,0.302,XRAY
+Company equity multiplier,2.005,1.828,1.880,1.689,1.696,XRAY
+Receivables turnover,6.206,5.691,4.966,5.152,5.679,XRAY
+Payables turnover,6.434,7.052,5.525,6.054,6.758,XRAY
+Inventory turnover,2.863,3.750,3.616,3.319,3.203,XRAY
+Fixed asset turnover,4.081,4.401,3.456,4.190,4.579,XRAY
+Asset turnover,0.513,0.461,0.358,0.468,0.459,XRAY
+Operating cash flow per share,2.399,3.008,2.897,2.836,2.228,XRAY
+Free cash flow per share,1.708,2.358,2.500,2.286,1.390,XRAY
+Cash per share,1.694,1.552,1.998,1.815,1.380,XRAY
+Payout ratio,-0.109,0.219,-1.060,0.308,-0.078,XRAY
+Operating cash flow sales ratio,0.132,0.155,0.190,0.157,0.125,XRAY
+Free cash flow operating cash flow ratio,0.712,0.784,0.863,0.806,0.624,XRAY
+Cash flow coverage ratios,0.247,0.293,0.264,0.407,0.302,XRAY
+Short term coverage ratios,4.381,3.610,2.124,275.130,5.409,XRAY
+Capital expenditure coverage ratio,-3.470,-4.627,-7.299,-5.149,-2.659,XRAY
+Dividend paid and capex coverage ratio,-11.489,-13.140,635,-15.067,-4.569,XRAY
+Dividend payout ratio,-0.109,0.219,-1.060,0.308,-0.078,XRAY
+Price book value ratio,1.800,2.416,2.309,2.478,1.630,XRAY
+Price to book ratio,1.800,2.416,2.309,2.478,1.630,XRAY
+Price to sales ratio,1.749,2.866,3.434,3.133,2.094,XRAY
+Price earnings ratio,-7.223,28.942,-138.281,48.023,-8.256,XRAY
+Price to free cash flows ratio,18.645,23.659,20.944,24.760,26.768,XRAY
+Price to operating cash flows ratio,13.272,18.546,18.075,19.951,16.699,XRAY
+Price cash flow ratio,13.272,18.546,18.075,19.951,16.699,XRAY
+Price earnings to growth ratio,0.022,0.049,1.039,0.383,-0.248,XRAY
+Price sales ratio,1.749,2.866,3.434,3.133,2.094,XRAY
+Dividend yield,0.015,0.008,0.008,0.006,0.009,XRAY
+Enterprise value multiple,13.548,14.057,17.021,16.300,13.421,XRAY
+Price fair value,1.800,2.416,2.309,2.478,1.630,XRAY

@@ -1,0 +1,28 @@
+,ticker,2023,2024,2025,2026,2027
+Revenue(In $M),FCX,"23,444","24,476","25,415","26,163","25,576"
+Dividend,FCX,0.54,0.54,0.60,-,-
+Dividend Yield (in %),FCX,1.26 %,1.38 %,1.41 %,-,-
+EPS,FCX,1.99,2.23,2.68,2.67,2.60
+P/E Ratio,FCX,17.62,15.75,13.06,13.15,13.48
+EBIT(In $M),FCX,"7,538","8,559","9,593","10,758","10,419"
+EBITDA(In $M),FCX,"9,735","10,929","12,255","12,995","12,629"
+Net Profit(In $M),FCX,"2,783","3,046","3,603","3,843","3,751"
+Net Profit Adjusted(In $M),FCX,"2,808","3,048","3,614","3,843","3,751"
+Pre-Tax Profit(In $M),FCX,"7,058","8,148","9,228","10,327","7,697"
+Net Profit (Adjusted)(In $M),FCX,"7,035","8,412","9,983","10,327","7,697"
+EPS (Non-GAAP) ex. SOE(In $),FCX,1.99,2.23,2.68,2.67,2.60
+EPS (GAAP)(In $),FCX,1.85,2.04,2.24,2.67,2.60
+Gross Income(In $M),FCX,"10,068","11,635","12,644",-,-
+Cash Flow from Investing(In $M),FCX,"-4,269","-3,292","-2,567","-1,545","-1,527"
+Cash Flow from Operations(In $M),FCX,"6,696","7,867","8,925","9,135","9,663"
+Cash Flow from Financing(In $M),FCX,"-2,095","-2,524","-2,188",-734,"-1,234"
+Cash Flow per Share(In $),FCX,4.38,5.06,5.47,6.33,6.70
+Free Cash Flow(In $M),FCX,"1,739","3,748","5,393","5,978","5,721"
+Free Cash Flow per Share(In $),FCX,1.33,2.79,4.30,2.70,3.64
+Book Value per Share(In $),FCX,13.07,14.50,15.16,-,-
+Net Debt(In $M),FCX,"2,904","1,437","-1,077","-20,059",-
+Research & Development Exp.(In $M),FCX,110,-,-,-,-
+Capital Expenditure(In $M),FCX,"4,621","3,291","2,377","1,545","1,527"
+"Selling, General & Admin. Exp.(In $M)",FCX,430,427,388,440,440
+Shareholder’s Equity(In $M),FCX,"22,975","24,746","25,302","31,093","34,301"
+Total Assets(In $M),FCX,"53,784","56,836","63,046","67,648","72,622"

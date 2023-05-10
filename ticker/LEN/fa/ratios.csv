@@ -1,0 +1,55 @@
+,2022,2021,2020,2019,2018,ticker
+Current ratio,16.549,16.623,19.225,20.801,13.941,LEN
+Quick ratio,3.295,2.473,2.946,3.812,1.735,LEN
+Cash ratio,2.856,2.070,2.607,1.352,1.038,LEN
+Days of sales outstanding,7.306,6.596,4.848,43.055,18.485,LEN
+Days of inventory outstanding,337.227,327.576,325.029,372.233,374.645,LEN
+Operating cycle,344.534,334.172,329.876,415.287,393.130,LEN
+Days of payables outstanding,25.429,23.126,19.921,21.996,29.091,LEN
+Cash conversion cycle,319.104,311.046,309.955,393.291,364.039,LEN
+Gross profit margin,0.311,0.231,0.155,0.203,0.192,LEN
+Operating profit margin,0.222,0.216,0.135,0.106,0,LEN
+Pretax profit margin,0.179,0.214,0.139,0.109,0.110,LEN
+Net profit margin,0.137,0.163,0.110,0.083,0.082,LEN
+Effective tax rate,0.227,0.234,0.210,0.243,0.241,LEN
+Return on assets,0.121,0.133,0.082,0.063,0.059,LEN
+Return on equity,0.191,0.213,0.137,0.116,0.116,LEN
+Return on capital employed,0.205,0.184,0.105,0.084,0,LEN
+Net income per EBT,0.767,0.761,0.789,0.760,0.749,LEN
+Ebt per ebit,0.806,0.994,1.031,1.028,0,LEN
+Ebit per revenue,0.222,0.216,0.135,0.106,0,LEN
+Debt ratio,0.362,0.368,0.395,0.454,0.486,LEN
+Debt equity ratio,0.168,0.223,0.331,0.600,0.694,LEN
+Long term debt to capitalization,0.144,0.183,0.249,0.375,0.410,LEN
+Total debt to capitalization,0.144,0.183,0.249,0.375,0.410,LEN
+Interest coverage,5.044,97.329,135.228,134.448,0,LEN
+Cash flow to debt ratio,0.807,0.544,0.704,0.155,0.169,LEN
+Company equity multiplier,1.576,1.595,1.664,1.841,1.959,LEN
+Receivables turnover,49.958,55.337,75.296,8.478,19.745,LEN
+Payables turnover,14.353,15.783,18.323,16.594,12.547,LEN
+Inventory turnover,1.082,1.114,1.123,0.981,0.974,LEN
+Fixed asset turnover,94.823,79.818,54.649,79.633,64.314,LEN
+Asset turnover,0.886,0.817,0.751,0.758,0.720,LEN
+Operating cash flow per share,11.268,8.261,13.545,4.655,5.558,LEN
+Free cash flow per share,11.070,8.048,13.310,4.384,5.134,LEN
+Cash per share,16.050,9.057,8.912,4.553,5.074,LEN
+Payout ratio,0.095,0.070,0.079,0.028,0.029,LEN
+Operating cash flow sales ratio,0.097,0.093,0.186,0.067,0.083,LEN
+Free cash flow operating cash flow ratio,0.982,0.974,0.983,0.942,0.924,LEN
+Cash flow coverage ratios,0.807,0.544,0.704,0.155,0.169,LEN
+Short term coverage ratios,0,0,0,0,0,LEN
+Capital expenditure coverage ratio,-57.078,-38.863,-57.604,-17.138,-13.122,LEN
+Dividend paid and capex coverage ratio,8.575,10.355,34.269,-42.301,-21.058,LEN
+Dividend payout ratio,0.095,0.070,0.079,0.028,0.029,LEN
+Price book value ratio,1.056,1.547,1.304,1.191,0.902,LEN
+Price to book ratio,1.056,1.547,1.304,1.191,0.902,LEN
+Price to sales ratio,0.756,1.187,1.044,0.853,0.640,LEN
+Price earnings ratio,5.517,7.271,9.522,10.272,7.760,LEN
+Price to free cash flows ratio,7.934,13.053,5.700,13.607,8.323,LEN
+Price to operating cash flows ratio,7.795,12.717,5.601,12.813,7.688,LEN
+Price cash flow ratio,7.795,12.717,5.601,12.813,7.688,LEN
+Price earnings to growth ratio,0.540,0.090,0.259,1.870,0.126,LEN
+Price sales ratio,0.756,1.187,1.044,0.853,0.640,LEN
+Dividend yield,0.017,0.010,0.008,0.003,0.004,LEN
+Enterprise value multiple,3.298,5.746,8.555,11.020,11.762,LEN
+Price fair value,1.056,1.547,1.304,1.191,0.902,LEN

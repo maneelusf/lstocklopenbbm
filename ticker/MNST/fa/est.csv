@@ -1,0 +1,28 @@
+,ticker,2023,2024,2025,2026,2027
+Revenue(In $M),MNST,"7,118","7,893","8,753","9,636","11,368"
+Dividend,MNST,0.00,0.00,0.00,0.00,-
+Dividend Yield (in %),MNST,-,-,-,-,-
+EPS,MNST,1.48,1.74,2.02,2.44,2.94
+P/E Ratio,MNST,39.16,33.24,28.67,23.66,19.69
+EBIT(In $M),MNST,"2,056","2,385","2,667","3,122","3,722"
+EBITDA(In $M),MNST,"2,145","2,479","2,743","3,141",-
+Net Profit(In $M),MNST,"1,565","1,845","2,096","2,384","2,817"
+Net Profit Adjusted(In $M),MNST,"1,580","1,836","2,045","2,346","2,817"
+Pre-Tax Profit(In $M),MNST,"2,053","2,384","2,672","3,131","3,699"
+Net Profit (Adjusted)(In $M),MNST,"2,077","2,397","2,656","3,215",-
+EPS (Non-GAAP) ex. SOE(In $),MNST,1.48,1.74,2.02,2.44,2.94
+EPS (GAAP)(In $),MNST,1.48,1.82,2.12,2.51,2.94
+Gross Income(In $M),MNST,"3,781","4,277","4,691",-,-
+Cash Flow from Investing(In $M),MNST,-110,-115,-92,-221,-246
+Cash Flow from Operations(In $M),MNST,"1,637","2,053","2,249","2,850","3,179"
+Cash Flow from Financing(In $M),MNST,-956,-949,"-1,330","-2,400","-2,800"
+Cash Flow per Share(In $),MNST,1.60,1.85,2.11,2.44,-
+Free Cash Flow(In $M),MNST,"1,589","1,967","2,025","1,964",-
+Free Cash Flow per Share(In $),MNST,1.83,1.86,2.11,-,-
+Book Value per Share(In $),MNST,7.26,8.01,9.59,11.04,-
+Net Debt(In $M),MNST,"-2,352","-2,677","-3,504","-4,053",-
+Research & Development Exp.(In $M),MNST,-,-,-,-,-
+Capital Expenditure(In $M),MNST,163,169,210,226,246
+"Selling, General & Admin. Exp.(In $M)",MNST,"1,742","1,915",-,-,-
+Shareholder’s Equity(In $M),MNST,"7,615","8,427","9,510","8,996","7,096"
+Total Assets(In $M),MNST,"8,905","9,775","10,717","7,878","7,857"

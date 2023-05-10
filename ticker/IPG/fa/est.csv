@@ -1,0 +1,28 @@
+,ticker,2023,2024,2025,2026
+Revenue(In $M),IPG,"9,768","10,143","10,970","10,890"
+Dividend,IPG,1.24,1.31,1.38,1.40
+Dividend Yield (in %),IPG,3.64 %,3.85 %,4.06 %,4.10 %
+EPS,IPG,2.92,3.11,3.32,3.75
+P/E Ratio,IPG,11.86,11.15,10.42,9.23
+EBIT(In $M),IPG,"1,550","1,626","1,703","1,697"
+EBITDA(In $M),IPG,"1,820","1,897","1,991","2,044"
+Net Profit(In $M),IPG,"1,110","1,164","1,217","1,230"
+Net Profit Adjusted(In $M),IPG,"1,110","1,164","1,217","1,230"
+Pre-Tax Profit(In $M),IPG,"1,452","1,533","1,617","1,658"
+Net Profit (Adjusted)(In $M),IPG,"1,457","1,535","1,626",-
+EPS (Non-GAAP) ex. SOE(In $),IPG,2.92,3.11,3.32,3.75
+EPS (GAAP)(In $),IPG,2.73,2.95,3.12,3.72
+Gross Income(In $M),IPG,"3,203","3,309","3,413",-
+Cash Flow from Investing(In $M),IPG,83,73,189,-166
+Cash Flow from Operations(In $M),IPG,"1,570","1,745","2,057","1,748"
+Cash Flow from Financing(In $M),IPG,-891,-840,-764,-760
+Cash Flow per Share(In $),IPG,3.50,3.77,3.99,-
+Free Cash Flow(In $M),IPG,"1,216","1,418","1,468","1,443"
+Free Cash Flow per Share(In $),IPG,2.97,3.13,3.37,-
+Book Value per Share(In $),IPG,10.23,11.36,12.73,-
+Net Debt(In $M),IPG,1,-71,-649,-317
+Research & Development Exp.(In $M),IPG,-,-,-,-
+Capital Expenditure(In $M),IPG,194,206,223,272
+"Selling, General & Admin. Exp.(In $M)",IPG,86,89,91,96
+Shareholder’s Equity(In $M),IPG,"3,942","4,353","4,925","5,405"
+Total Assets(In $M),IPG,"20,299","20,693","21,800","22,527"

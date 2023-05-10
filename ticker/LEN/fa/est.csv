@@ -1,0 +1,28 @@
+,ticker,2023,2024,2025
+Revenue(In $M),LEN,"29,291","28,941","30,762"
+Dividend,LEN,1.51,1.54,1.57
+Dividend Yield (in %),LEN,1.44 %,1.47 %,1.51 %
+EPS,LEN,10.04,10.81,12.11
+P/E Ratio,LEN,11.20,10.41,9.29
+EBIT(In $M),LEN,"4,016","4,139","4,517"
+EBITDA(In $M),LEN,"4,192","4,327","4,877"
+Net Profit(In $M),LEN,"2,846","2,928","3,301"
+Net Profit Adjusted(In $M),LEN,"2,868","3,017","3,434"
+Pre-Tax Profit(In $M),LEN,"3,765","3,867","4,311"
+Net Profit (Adjusted)(In $M),LEN,"3,758","3,568","3,675"
+EPS (Non-GAAP) ex. SOE(In $),LEN,10.04,10.81,13.30
+EPS (GAAP)(In $),LEN,10.04,10.81,12.11
+Gross Income(In $M),LEN,"6,008","6,120","8,871"
+Cash Flow from Investing(In $M),LEN,-77,-88,-99
+Cash Flow from Operations(In $M),LEN,"3,780","1,940","2,118"
+Cash Flow from Financing(In $M),LEN,"-2,499","-2,323",-
+Cash Flow per Share(In $),LEN,13.72,10.82,13.61
+Free Cash Flow(In $M),LEN,"5,016","1,794","2,020"
+Free Cash Flow per Share(In $),LEN,12.22,6.47,-
+Book Value per Share(In $),LEN,88.23,96.35,105.13
+Net Debt(In $M),LEN,-867,"-1,261","-2,185"
+Research & Development Exp.(In $M),LEN,-,-,-
+Capital Expenditure(In $M),LEN,64,65,80
+"Selling, General & Admin. Exp.(In $M)",LEN,"2,033","2,010",-
+Shareholder’s Equity(In $M),LEN,"25,727","27,064","29,803"
+Total Assets(In $M),LEN,"38,275","38,987","44,539"

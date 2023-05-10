@@ -1,0 +1,28 @@
+,ticker,2023,2024,2025,2026,2027
+Revenue(In $M),AMT,"11,014","11,424","11,923","12,507","13,120"
+Dividend,AMT,6.45,7.12,7.89,9.20,10.12
+Dividend Yield (in %),AMT,3.26 %,3.64 %,4.11 %,4.60 %,4.69 %
+EPS,AMT,4.13,4.92,5.61,6.67,6.93
+P/E Ratio,AMT,47.05,39.52,34.70,29.17,28.07
+EBIT(In $M),AMT,"3,552","3,887","4,198","4,593","4,923"
+EBITDA(In $M),AMT,"6,930","7,197","7,537","8,090","8,358"
+Net Profit(In $M),AMT,"1,931","2,324","2,610","3,119","3,221"
+Net Profit Adjusted(In $M),AMT,"1,916","2,279","2,496","2,829","3,169"
+Pre-Tax Profit(In $M),AMT,"2,183","2,577","2,843","3,162","3,413"
+Net Profit (Adjusted)(In $M),AMT,"2,115","2,477","2,714",-,-
+EPS (Non-GAAP) ex. SOE(In $),AMT,4.16,4.53,5.08,-,-
+EPS (GAAP)(In $),AMT,4.13,4.92,5.61,6.67,6.93
+Gross Income(In $M),AMT,"7,730","8,024","8,447","9,139","9,747"
+Cash Flow from Investing(In $M),AMT,"-1,548","-1,740","-1,775",-,-
+Cash Flow from Operations(In $M),AMT,"5,628","6,014","6,157",-,-
+Cash Flow from Financing(In $M),AMT,"-3,600","-3,886","-4,626",-,-
+Cash Flow per Share(In $),AMT,10.98,12.16,13.05,-,-
+Free Cash Flow(In $M),AMT,"3,898","4,273","4,798","4,518","4,859"
+Free Cash Flow per Share(In $),AMT,7.16,7.93,8.62,9.72,10.46
+Book Value per Share(In $),AMT,14.03,11.44,7.06,-,-
+Net Debt(In $M),AMT,"37,540","37,607","37,989","36,514","36,737"
+Research & Development Exp.(In $M),AMT,-,-,-,-,-
+Capital Expenditure(In $M),AMT,"1,700","1,672","1,706","1,646","1,681"
+"Selling, General & Admin. Exp.(In $M)",AMT,879,907,940,999,"1,027"
+Shareholder’s Equity(In $M),AMT,"5,440","4,051","3,246","-4,861",596
+Total Assets(In $M),AMT,"63,062","62,543","62,260","59,229","65,154"

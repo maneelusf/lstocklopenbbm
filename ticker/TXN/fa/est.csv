@@ -1,0 +1,28 @@
+,ticker,2023,2024,2025,2026,2027
+Revenue(In $M),TXN,"17,951","19,439","20,783","23,320","26,102"
+Dividend,TXN,5.01,5.30,5.90,-,-
+Dividend Yield (in %),TXN,2.90 %,3.08 %,2.95 %,-,-
+EPS,TXN,7.40,8.07,8.51,10.25,12.29
+P/E Ratio,TXN,22.34,20.47,19.42,16.12,13.45
+EBIT(In $M),TXN,"7,915","8,646","9,160","10,353","12,685"
+EBITDA(In $M),TXN,"9,227","10,379","11,360",-,"16,251"
+Net Profit(In $M),TXN,"6,826","7,381","7,826","8,924","10,854"
+Net Profit Adjusted(In $M),TXN,"6,926","7,457","8,117","8,924","10,452"
+Pre-Tax Profit(In $M),TXN,"7,878","8,569","9,045","10,317","12,662"
+Net Profit (Adjusted)(In $M),TXN,"8,067","8,740","9,152",-,-
+EPS (Non-GAAP) ex. SOE(In $),TXN,7.54,8.16,8.96,10.25,12.23
+EPS (GAAP)(In $),TXN,7.40,8.07,8.51,-,12.34
+Gross Income(In $M),TXN,"11,666","12,603","13,263","14,003","16,256"
+Cash Flow from Investing(In $M),TXN,"-3,384","-4,444","-4,544",-,-
+Cash Flow from Operations(In $M),TXN,"7,920","9,705","10,608",-,-
+Cash Flow from Financing(In $M),TXN,"-3,665","-5,254","-6,067",-,-
+Cash Flow per Share(In $),TXN,8.83,10.32,11.69,-,-
+Free Cash Flow(In $M),TXN,"3,702","4,996","5,794","7,630","9,513"
+Free Cash Flow per Share(In $),TXN,3.61,5.50,6.32,8.76,10.85
+Book Value per Share(In $),TXN,18.10,19.91,22.67,-,-
+Net Debt(In $M),TXN,956,"1,432","4,123",-,-
+Research & Development Exp.(In $M),TXN,"1,834","1,902","1,953",-,-
+Capital Expenditure(In $M),TXN,"4,291","4,620","4,738","4,461","3,620"
+"Selling, General & Admin. Exp.(In $M)",TXN,"1,896","1,944","2,006",-,-
+Shareholder’s Equity(In $M),TXN,"16,680","18,698","21,523",-,-
+Total Assets(In $M),TXN,"30,443","32,520","37,048",-,-

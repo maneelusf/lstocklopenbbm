@@ -1,0 +1,95 @@
+,ticker,headline,datetime,sentiment_bucket,sentiment_score
+0,AAPL,"Apple Earnings May Fall 10% As iPad, Mac Sales Drag",2023-05-02 11:20:17,Negative,0.38
+1,AAPL,"GM Ditches Apple CarPlay In 2024 Chevy Blazer, Latest Salvo In Auto Dashboard Wars",2023-05-02 09:34:18,Negative,0.28
+2,AAPL,Apple fights $2 billion London lawsuit for 'throttling' millions of iPhones,2023-05-02 08:34:56,Negative,0.28
+3,AAPL,"Apple Card savings account has an attractive 4.15% interest rate, but be aware of these pitfalls before signing up",2023-05-02 07:25:00,Negative,0.27
+4,AAPL,Apple fights $2 bln London lawsuit for 'throttling' millions of iPhones,2023-05-02 05:54:58,Negative,0.34
+5,AAPL,Masimo Falls after Mistrial Verdict in AAPL Case,2023-05-02 01:02:00,Negative,0.23
+6,AAPL,Masimo down 5% after judge declares mistrial in fight with Apple,2023-05-02 00:22:00,Negative,0.21
+7,AAPL,US judge declares mistrial in Apple-Masimo smartwatch trade secrets fight,2023-05-01 16:37:55,Negative,0.31
+8,AAPL,Apple iPhone Sales May Miss Wall Street Estimates. Here’s Why.,2023-05-01 10:14:00,Negative,0.32
+9,AAPL,Apple Earnings To Define Mixed Q1 Season As Stocks Test 2023 Highs,2023-05-01 09:26:00,Negative,0.38
+10,AAPL,Apple Partnership was “Kiss of Death” Smaller Rivals Claim,2023-05-01 05:52:00,Negative,0.38
+11,AAPL,Don't Guess in Any Big Way at What Apple or the Fed May Say,2023-05-01 04:49:00,Negative,0.33
+12,AAPL,"Analysts Conflicted on These Technology Names: Apple (AAPL), Astra Space (ASTR) and Honeywell International (HON)",2023-04-30 22:11:00,Negative,0.26
+13,AAPL,Apple: Negative Services Growth On The Horizon,2023-04-30 05:22:00,Negative,0.21
+14,AAPL,"Giant Fund Sells Apple, Tesla, Intel, and Nvidia Stock",2023-04-30 05:00:00,Negative,0.28
+15,AAPL,Apple Is Offering A Rich Valuation And Slow Growth: Look Elsewhere,2023-04-29 05:33:00,Negative,0.33
+16,AAPL,Apple employee who defrauded company of millions sentenced to three years in prison,2023-04-28 04:05:45,Negative,0.22
+17,AAPL,Apple Pay Later won't affect us for years: Klarna CEO,2023-04-27 14:56:01,Negative,0.39
+18,AAPL,Analysts Estimate Apple (AAPL) to Report a Decline in Earnings: What to Look Out for,2023-04-27 07:02:02,Negative,0.29
+19,AAPL,Apple's Q2 Preview: Why It May Be Painful,2023-04-27 05:26:44,Negative,0.33
+20,AAPL,Apple`s Q2 Preview: Why It May Be Painful,2023-04-27 04:31:00,Negative,0.34
+21,AAPL,"Samsung, Apple lead another weak smartphone quarter",2023-04-27 03:00:00,Negative,0.28
+22,AAPL,"Apple, Google partner to combat creepy tracking tactics",2023-05-02 10:26:52,Positive,0.66
+23,AAPL,"Q1 Earnings Season Scorecard and Featured Research on Apple, Microsoft & Meta Platforms",2023-05-02 09:53:04,Positive,0.69
+24,AAPL,"Apple Inc. stock falls Tuesday, still outperforms market",2023-05-02 09:31:00,Positive,0.7
+25,AAPL,"UPDATE 1-Google, Apple working together to fight unwanted tracking ",2023-05-02 09:13:53,Positive,0.79
+26,AAPL,"Apple, Google Partner to Address AirTag Safety Concerns",2023-05-02 08:46:00,Positive,0.75
+27,AAPL,Apple Is About to Increase Its Dividend: What You Need to Know,2023-05-02 08:41:00,Positive,0.6
+28,AAPL,"Google, Apple working together to fight unwanted tracking",2023-05-02 06:14:49,Positive,0.61
+29,AAPL,"Google, Apple submit proposal to fight misuse of Bluetooth location-tracking devices ",2023-05-02 06:12:21,Positive,0.65
+30,AAPL,Why Apple’s bid to control your car is striking fear into manufacturers,2023-05-02 04:00:00,Positive,0.78
+31,AAPL,"2 Good Reasons to Buy Apple Stock, and 1 Major Risk to Consider",2023-05-02 03:11:00,Positive,0.6
+32,AAPL,"Apple, Google join forces on AirTag tracking security",2023-05-02 02:50:00,Positive,0.74
+33,AAPL,"The Zacks Analyst Blog Highlights Apple, FedEx, Marathon Petroleum and Stellantis",2023-05-02 02:49:09,Positive,0.77
+34,AAPL,"Apple, Google lead initiative for specification to address unwanted tracking",2023-05-02 02:33:00,Positive,0.6
+35,AAPL,Apple and Google team up to stop unwanted AirTag tracking,2023-05-02 02:00:01,Positive,0.74
+36,AAPL,Apple price target raised to $180 from $170 at Baird,2023-05-01 22:39:00,Positive,0.75
+37,AAPL,Apple (AAPL): New Buy Recommendation for This Technology Giant,2023-05-01 20:26:00,Positive,0.74
+38,AAPL,UPDATE 2-US judge declares mistrial in Apple-Masimo smartwatch trade secrets fight,2023-05-01 16:18:37,Positive,0.73
+39,AAPL,"Apple Earnings Are Next. Back the Stock for This Reason, Analyst Says.",2023-05-01 05:20:00,Positive,0.6
+40,AAPL,Wedbush: Apple to Meet or Exceed iPhone Revenue Predictions,2023-05-01 04:20:00,Positive,0.64
+41,AAPL,"Amazon, Alphabet, Apple, Meta and Microsoft are part of Zacks Earnings Preview",2023-05-01 01:50:08,Positive,0.6
+42,AAPL,"Apple likely to post `in-line` iPhone revenue, seeing uptick in China: Wedbush",2023-04-30 23:25:00,Positive,0.62
+43,AAPL,Apple price target raised to $173 from $168 at BofA,2023-04-30 23:12:00,Positive,0.65
+44,AAPL,"What's worth streaming in May 2023, as HBO Max reboots, Netflix rolls out big names and Apple takes a big swing",2023-04-30 07:50:00,Positive,0.75
+45,AAPL,Amazon made earnings look better — can Apple continue the momentum?,2023-04-30 06:33:00,Positive,0.78
+46,AAPL,Amazon made earnings look better ��� can Apple continue the momentum?,2023-04-30 05:35:00,Positive,0.76
+47,AAPL,"Weekly Preview: Earnings to Watch This Week 4-30-23 (AMD, AAPL, MRNA, SQ)",2023-04-30 00:24:00,Positive,0.74
+48,AAPL,"What`s worth streaming in May 2023, as HBO Max reboots, Netflix rolls out big names and Apple takes a big swing",2023-04-29 18:51:00,Positive,0.7
+49,AAPL,Apple Rising As Investors Bet On A Sunny March-Quarter Report,2023-04-28 13:10:19,Positive,0.74
+50,AAPL,"Apple Inc. stock rises Friday, outperforms market",2023-04-28 09:31:00,Positive,0.72
+51,AAPL,"Earnings Week Ahead: Apple, Ford, Starbucks, Anheuser Busch, and more",2023-04-28 05:33:00,Positive,0.73
+52,AAPL,Apple and Microsoft Have Never Held More Sway Over the S&P 500,2023-04-28 03:01:56,Positive,0.71
+53,AAPL,Apple's Magnificent Growth in This Market Could Be a Game Changer in the Long Run,2023-04-28 03:01:00,Positive,0.63
+54,AAPL,D.A. Davidson Keeps Their Buy Rating on Apple (AAPL),2023-04-28 00:36:00,Positive,0.69
+55,AAPL,"Apple Inc. stock rises Thursday, outperforms market",2023-04-27 10:35:00,Positive,0.74
+56,AAPL,"SCHG: Heavier Exposure To Earnings Power Of Apple, Microsoft, And Google",2023-04-27 10:16:51,Positive,0.65
+57,AAPL,Apple exec hails importance of having apps ‘built by everyone’ on App Store,2023-04-27 08:42:28,Positive,0.63
+58,AAPL,"Apple discloses European MAUs for products, services as it complies with DSA",2023-04-27 02:43:00,Positive,0.78
+59,AAPL,Apple and Oppo Battle for Top Spot in China Phone Market,2023-04-26 23:24:53,Positive,0.73
+60,AAPL,Baird Maintains Apple (AAPL) Outperform Recommendation,2023-05-02 09:08:01,Neutral,0.5
+61,AAPL,Apple Earnings: What to Watch,2023-05-02 05:31:00,Neutral,0.5
+62,AAPL,Apple said to cut drivers in California autonomous vehicle testing program,2023-05-02 05:16:00,Neutral,0.5
+63,AAPL,"Apple and 10 other stocks tied to China supply chains are at risk, but 7 others may benefit, says Morgan Stanley",2023-05-02 03:18:00,Neutral,0.5
+64,AAPL,India's first iPhone maker is quitting amid Apple's growing presence in the country,2023-05-02 01:40:00,Neutral,0.5
+65,AAPL,Nasdaq 100 forecast: Where next for Apple stock ahead of Q2 earnings?,2023-05-02 00:51:00,Neutral,0.5
+66,AAPL,"Hung jury likely in Masimo, Apple trade case, says Piper Sandle",2023-05-01 23:33:00,Neutral,0.5
+67,AAPL,More than 90% of Apple`s production is still in China. Why Morgan Stanley says that`s a problem.,2023-05-01 23:06:00,Neutral,0.5
+68,AAPL,Apple-Masimo Trade Secrets Fight Ends With No Jury Verdict,2023-05-01 16:56:12,Neutral,0.5
+69,AAPL,Big Tech Earnings: Time to Take Another Bite of Apple?,2023-05-01 15:14:10,Neutral,0.5
+70,AAPL,B of A Securities Maintains Apple (AAPL) Neutral Recommendation,2023-05-01 11:07:13,Neutral,0.5
+71,AAPL,15 Most Profitable Industries In America In 2023,2023-05-01 09:43:22,Neutral,0.5
+72,AAPL,Apple Inc. stock outperforms market despite losses on the day,2023-05-01 09:31:00,Neutral,0.5
+73,AAPL,Apple (AAPL) to Report Q2 Earnings: What's in the Offing?,2023-05-01 09:18:04,Neutral,0.5
+74,AAPL,How to Play Apple Ahead of Its Important Earnings Report,2023-05-01 07:15:00,Neutral,0.5
+75,AAPL,Market Faces Its Most Significant News of 2023: Fed Policy and Apple Earnings,2023-05-01 04:49:00,Neutral,0.5
+76,AAPL,All Eyes on Apple Stock Ahead of Earnings,2023-05-01 04:04:00,Neutral,0.5
+77,AAPL,"Analysts` Opinions Are Mixed on These Technology Stocks: Apple (AAPL), Teradyne (TER) and Mobileye Global, Inc. Class A (MBLY)",2023-04-30 23:51:00,Neutral,0.5
+78,AAPL,"Apple should post at least in-line iPhone revenues, says Wedbush",2023-04-30 23:42:00,Neutral,0.5
+79,AAPL,"Nasdaq, S&P 500, Dow edge lower as investors look ahead to Fed, Apple earnings",2023-04-30 20:05:00,Neutral,0.5
+80,AAPL,"Fed decision, Apple earnings, April jobs report: What to know this week",2023-04-30 07:46:01,Neutral,0.5
+81,AAPL,Apple in India: How the iPhone maker is scaling the world's second-largest smartphone market,2023-04-30 07:20:32,Neutral,0.5
+82,AAPL,Where Will Apple Stock Be in 3 Years?,2023-04-30 03:18:00,Neutral,0.5
+83,AAPL,"Starbucks, Ford, Apple Lead Another Busy Earnings Week",2023-04-30 02:30:00,Neutral,0.5
+84,AAPL,iPhone Sales Are Key for Apple. India Could Move the Needle.,2023-04-30 00:30:00,Neutral,0.5
+85,AAPL,"A ""Cornerstone"" For Value Investors",2023-04-29 04:40:00,Neutral,0.5
+86,AAPL,"Catalyst Watch: FOMC Meeting, Apple Earnings Preview (Podcast)",2023-04-29 00:00:00,Neutral,0.5
+87,AAPL,"Stock Charts Strategy, May 1-5: Fed Policy, April Payrolls, Apple Earnings",2023-04-28 10:12:49,Neutral,0.5
+88,AAPL,"AAPL Stock Ramps Higher Ahead Of Quarterly Results. Wall Street Eyes Reports From DraftKings, Arista Networks",2023-04-28 08:38:49,Neutral,0.5
+89,AAPL,"iPhone 15 to add mysterious new button on the side, Apple rumours suggest",2023-04-28 08:15:25,Neutral,0.5
+90,AAPL,Here is What to Know Beyond Why Apple Inc. (AAPL) is a Trending Stock,2023-04-28 06:00:01,Neutral,0.5
+91,AAPL,"Catalyst watch: FOMC, Apple earnings, Kenvue IPO and jobs report are on tap",2023-04-27 19:06:00,Neutral,0.5
+92,AAPL,"Apple Stock Is a Winner, but How Much Higher Can It Go?",2023-04-27 18:30:00,Neutral,0.5
+93,AAPL,These 3 Companies Are Too Dependent On Apple,2023-04-29 04:10:00,Strongly Negative,0.11

@@ -1,0 +1,55 @@
+,2022,2021,2020,2019,2018,ticker
+Current ratio,1.172,1.288,1.613,1.420,1.395,MA
+Quick ratio,0.764,0.928,1.262,1.108,1.131,MA
+Cash ratio,0.495,0.564,0.854,0.587,0.576,MA
+Days of sales outstanding,56.218,83.596,103.815,119.101,115.433,MA
+Days of inventory outstanding,0,0,0,0,0,MA
+Operating cycle,56.218,83.596,103.815,119.101,115.433,MA
+Days of payables outstanding,64.220,60.007,50.794,50.462,60.985,MA
+Cash conversion cycle,-8.002,23.589,53.022,68.639,54.448,MA
+Gross profit margin,0.763,0.762,0.752,0.790,0.785,MA
+Operating profit margin,0.552,0.534,0.528,0.572,0.487,MA
+Pretax profit margin,0.528,0.546,0.507,0.576,0.482,MA
+Net profit margin,0.447,0.460,0.419,0.481,0.392,MA
+Effective tax rate,0.154,0.157,0.174,0.166,0.187,MA
+Return on assets,0.256,0.231,0.191,0.278,0.236,MA
+Return on equity,1.577,1.188,1.003,1.378,1.086,MA
+Return on capital employed,0.499,0.411,0.372,0.558,0.549,MA
+Net income per EBT,0.846,0.843,0.826,0.834,0.813,MA
+Ebt per ebit,0.957,1.022,0.960,1.007,0.989,MA
+Ebit per revenue,0.552,0.534,0.528,0.572,0.487,MA
+Debt ratio,0.835,0.803,0.806,0.795,0.782,MA
+Debt equity ratio,2.227,1.901,1.983,1.447,1.174,MA
+Long term debt to capitalization,0.686,0.642,0.653,0.591,0.520,MA
+Total debt to capitalization,0.690,0.655,0.665,0.591,0.540,MA
+Interest coverage,26.038,23.392,21.266,43.143,39.151,MA
+Cash flow to debt ratio,0.798,0.681,0.570,0.960,0.982,MA
+Company equity multiplier,6.149,5.152,5.255,4.961,4.608,MA
+Receivables turnover,6.493,4.366,3.516,3.065,3.162,MA
+Payables turnover,5.684,6.083,7.186,7.233,5.985,MA
+Inventory turnover,0,0,0,0,0,MA
+Fixed asset turnover,11.085,9.902,8.045,9.236,16.232,MA
+Asset turnover,0.574,0.501,0.456,0.577,0.601,MA
+Operating cash flow per share,11.565,9.578,7.210,8.046,5.978,MA
+Free cash flow per share,10.432,8.754,6.503,7.330,5.494,MA
+Cash per share,7.653,7.990,10.575,7.548,8.048,MA
+Payout ratio,0.192,0.200,0.250,0.166,0.178,MA
+Operating cash flow sales ratio,0.503,0.501,0.472,0.485,0.416,MA
+Free cash flow operating cash flow ratio,0.902,0.914,0.902,0.911,0.919,MA
+Cash flow coverage ratios,0.798,0.681,0.570,0.960,0.982,MA
+Short term coverage ratios,40.858,11.948,11.131,0,12.446,MA
+Capital expenditure coverage ratio,-10.205,-11.625,-10.203,-11.240,-12.347,MA
+Dividend paid and capex coverage ratio,13.890,10.208,8.054,13.263,11.524,MA
+Dividend payout ratio,0.192,0.200,0.250,0.166,0.178,MA
+Price book value ratio,53.446,48.551,55.962,51.530,36.401,MA
+Price to book ratio,53.446,48.551,55.962,51.530,36.401,MA
+Price to sales ratio,15.137,18.799,23.375,17.986,13.136,MA
+Price earnings ratio,33.898,40.867,55.788,37.407,33.518,MA
+Price to free cash flows ratio,33.334,41.046,54.889,40.733,34.339,MA
+Price to operating cash flows ratio,30.067,37.515,49.509,37.109,31.558,MA
+Price cash flow ratio,30.067,37.515,49.509,37.109,31.558,MA
+Price earnings to growth ratio,2.027,1.094,-2.818,0.896,0.628,MA
+Price sales ratio,15.137,18.799,23.375,17.986,13.136,MA
+Dividend yield,0.006,0.005,0.004,0.004,0.005,MA
+Enterprise value multiple,25.657,33.158,41.219,29.884,24.976,MA
+Price fair value,53.446,48.551,55.962,51.530,36.401,MA

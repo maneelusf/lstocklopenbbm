@@ -1,0 +1,28 @@
+,ticker,2023,2024,2025
+Revenue(In $M),OI,"7,223","7,459","7,702"
+Dividend,OI,0.00,0.00,0.00
+Dividend Yield (in %),OI,0.49 %,0.57 %,-
+EPS,OI,3.12,3.11,3.27
+P/E Ratio,OI,6.89,6.91,6.56
+EBIT(In $M),OI,977,"1,005","1,078"
+EBITDA(In $M),OI,"1,449","1,484","1,549"
+Net Profit(In $M),OI,491,500,545
+Net Profit Adjusted(In $M),OI,505,513,545
+Pre-Tax Profit(In $M),OI,680,705,776
+Net Profit (Adjusted)(In $M),OI,639,673,749
+EPS (Non-GAAP) ex. SOE(In $),OI,3.12,3.11,3.27
+EPS (GAAP)(In $),OI,3.05,3.10,3.45
+Gross Income(In $M),OI,"1,764","1,819","1,876"
+Cash Flow from Investing(In $M),OI,-,-,-
+Cash Flow from Operations(In $M),OI,971,998,-
+Cash Flow from Financing(In $M),OI,-,-,-
+Cash Flow per Share(In $),OI,5.56,6.10,6.94
+Free Cash Flow(In $M),OI,221,410,574
+Free Cash Flow per Share(In $),OI,1.78,2.86,3.69
+Book Value per Share(In $),OI,12.77,15.69,20.37
+Net Debt(In $M),OI,"3,739","3,337","2,914"
+Research & Development Exp.(In $M),OI,84,88,-
+Capital Expenditure(In $M),OI,688,587,500
+"Selling, General & Admin. Exp.(In $M)",OI,509,528,512
+Shareholder’s Equity(In $M),OI,"1,982","2,435","3,151"
+Total Assets(In $M),OI,"9,423",-,-

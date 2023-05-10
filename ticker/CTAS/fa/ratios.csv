@@ -1,0 +1,55 @@
+,2022,2021,2020,2019,2018,ticker
+Current ratio,1.837,1.470,2.609,1.983,2.549,CTAS
+Quick ratio,0.781,0.733,1.148,0.899,1.241,CTAS
+Cash ratio,0.063,0.255,0.164,0.086,0.179,CTAS
+Days of sales outstanding,47.768,47.392,44.838,48.594,46.450,CTAS
+Days of inventory outstanding,120.063,124.035,111.765,108.492,28.678,CTAS
+Operating cycle,167.831,171.427,156.603,157.086,75.128,CTAS
+Days of payables outstanding,21.742,22.158,21.892,21.919,22.001,CTAS
+Cash conversion cycle,146.090,149.270,134.711,135.167,53.127,CTAS
+Gross profit margin,0.462,0.466,0.456,0.454,0.449,CTAS
+Operating profit margin,0.202,0.195,0.164,0.164,0.147,CTAS
+Pretax profit margin,0.191,0.181,0.149,0.160,0.130,CTAS
+Net profit margin,0.157,0.156,0.124,0.128,0.130,CTAS
+Effective tax rate,0.175,0.137,0.172,0.199,0.068,CTAS
+Return on assets,0.152,0.135,0.114,0.119,0.121,CTAS
+Return on equity,0.374,0.301,0.271,0.295,0.279,CTAS
+Return on capital employed,0.236,0.220,0.171,0.180,0.154,CTAS
+Net income per EBT,0.825,0.863,0.828,0.803,1.002,CTAS
+Ebt per ebit,0.944,0.929,0.910,0.973,0.885,CTAS
+Ebit per revenue,0.202,0.195,0.164,0.164,0.147,CTAS
+Debt ratio,0.594,0.552,0.578,0.596,0.566,CTAS
+Debt equity ratio,0.897,0.737,0.836,0.949,0.840,CTAS
+Long term debt to capitalization,0.441,0.325,0.451,0.458,0.457,CTAS
+Total debt to capitalization,0.473,0.424,0.455,0.487,0.457,CTAS
+Interest coverage,17.867,14.107,11.032,11.142,8.621,CTAS
+Cash flow to debt ratio,0.518,0.501,0.477,0.375,0.380,CTAS
+Company equity multiplier,2.463,2.234,2.371,2.477,2.307,CTAS
+Receivables turnover,7.641,7.702,8.140,7.511,7.858,CTAS
+Payables turnover,16.788,16.473,16.673,16.652,16.590,CTAS
+Inventory turnover,3.040,2.943,3.266,3.364,12.727,CTAS
+Fixed asset turnover,5.258,4.786,4.533,4.817,4.684,CTAS
+Asset turnover,0.964,0.864,0.924,0.927,0.931,CTAS
+Operating cash flow per share,14.904,12.975,12.440,10.067,9.045,CTAS
+Free cash flow per share,12.571,11.607,10.222,7.458,6.496,CTAS
+Cash per share,0.877,4.707,1.401,0.911,1.301,CTAS
+Payout ratio,0.304,0.406,0.306,0.249,0.208,CTAS
+Operating cash flow sales ratio,0.196,0.191,0.182,0.155,0.149,CTAS
+Free cash flow operating cash flow ratio,0.843,0.895,0.822,0.741,0.718,CTAS
+Cash flow coverage ratios,0.518,0.501,0.477,0.375,0.380,CTAS
+Short term coverage ratios,4.326,1.443,30.013,3.420,0,CTAS
+Capital expenditure coverage ratio,-6.389,-9.484,-5.608,-3.859,-3.549,CTAS
+Dividend paid and capex coverage ratio,11.437,4.420,34.287,-19.084,-10.032,CTAS
+Dividend payout ratio,0.304,0.406,0.306,0.249,0.208,CTAS
+Price book value ratio,12.423,10.038,8.053,7.837,6.440,CTAS
+Price to book ratio,12.423,10.038,8.053,7.837,6.440,CTAS
+Price to sales ratio,5.232,5.202,3.677,3.414,2.999,CTAS
+Price earnings ratio,33.256,33.321,29.738,26.590,23.056,CTAS
+Price to free cash flows ratio,31.687,30.411,24.549,29.744,28.054,CTAS
+Price to operating cash flows ratio,26.727,27.205,20.172,22.036,20.149,CTAS
+Price cash flow ratio,26.727,27.205,20.172,22.036,20.149,CTAS
+Price earnings to growth ratio,2.499,1.290,22.303,4.402,0.315,CTAS
+Price sales ratio,5.232,5.202,3.677,3.414,2.999,CTAS
+Dividend yield,0.009,0.012,0.010,0.009,0.009,CTAS
+Enterprise value multiple,22.128,22.121,18.546,17.416,16.927,CTAS
+Price fair value,12.423,10.038,8.053,7.837,6.440,CTAS

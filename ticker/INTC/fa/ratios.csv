@@ -1,0 +1,55 @@
+,2022,2021,2020,2019,2018,ticker
+Current ratio,1.568,2.102,1.909,1.400,1.731,INTC
+Quick ratio,1.010,1.379,1.239,0.932,1.105,INTC
+Cash ratio,0.347,0.176,0.237,0.188,0.182,INTC
+Days of sales outstanding,23.925,43.680,31.790,38.846,34.631,INTC
+Days of inventory outstanding,133.380,111.711,89.793,107.010,97.648,INTC
+Operating cycle,157.305,155.392,121.583,145.855,132.279,INTC
+Days of payables outstanding,96.777,59.577,59.468,50.519,51.483,INTC
+Cash conversion cycle,60.528,95.814,62.116,95.337,80.796,INTC
+Gross profit margin,0.426,0.554,0.560,0.586,0.617,INTC
+Operating profit margin,-0.031,0.246,0.304,0.306,0.329,INTC
+Pretax profit margin,0.123,0.275,0.322,0.334,0.329,INTC
+Net profit margin,0.127,0.251,0.268,0.292,0.297,INTC
+Effective tax rate,-0.032,0.085,0.167,0.125,0.097,INTC
+Return on assets,0.044,0.118,0.137,0.154,0.165,INTC
+Return on equity,0.079,0.208,0.258,0.272,0.282,INTC
+Return on capital employed,-0.013,0.138,0.184,0.193,0.209,INTC
+Net income per EBT,1.032,0.915,0.833,0.875,0.903,INTC
+Ebt per ebit,-4.025,1.115,1.059,1.092,1.000,INTC
+Ebit per revenue,-0.031,0.246,0.304,0.306,0.329,INTC
+Debt ratio,0.433,0.434,0.471,0.432,0.417,INTC
+Debt equity ratio,0.415,0.399,0.449,0.374,0.354,INTC
+Long term debt to capitalization,0.271,0.260,0.295,0.246,0.252,INTC
+Total debt to capitalization,0.293,0.285,0.310,0.272,0.261,INTC
+Interest coverage,-3.891,32.590,46.980,45.061,49.821,INTC
+Cash flow to debt ratio,0.367,0.787,0.972,1.143,1.117,INTC
+Company equity multiplier,1.795,1.765,1.889,1.762,1.716,INTC
+Receivables turnover,15.256,8.356,11.481,9.396,10.540,INTC
+Payables turnover,3.772,6.127,6.138,7.225,7.090,INTC
+Inventory turnover,2.737,3.267,4.065,3.411,3.738,INTC
+Fixed asset turnover,0.780,1.249,1.376,1.299,1.447,INTC
+Asset turnover,0.346,0.469,0.509,0.527,0.554,INTC
+Operating cash flow per share,3.757,7.389,8.427,7.504,6.383,INTC
+Free cash flow per share,-2.341,2.380,4.985,3.833,3.091,INTC
+Cash per share,6.898,7,5.691,2.971,2.527,INTC
+Payout ratio,0.748,0.284,0.266,0.265,0.263,INTC
+Operating cash flow sales ratio,0.245,0.380,0.454,0.461,0.415,INTC
+Free cash flow operating cash flow ratio,-0.623,0.322,0.592,0.511,0.484,INTC
+Cash flow coverage ratios,0.367,0.787,0.972,1.143,1.117,INTC
+Short term coverage ratios,3.534,6.533,14.131,8.975,23.340,INTC
+Capital expenditure coverage ratio,-0.616,-1.475,-2.448,-2.044,-1.939,INTC
+Dividend paid and capex coverage ratio,-0.810,-2.042,-3.982,-3.116,-3.053,INTC
+Dividend payout ratio,0.748,0.284,0.266,0.265,0.263,INTC
+Price book value ratio,1.071,2.183,2.439,3.424,2.891,INTC
+Price to book ratio,1.071,2.183,2.439,3.424,2.891,INTC
+Price to sales ratio,1.722,2.635,2.538,3.688,3.043,INTC
+Price earnings ratio,13.548,10.483,9.457,12.608,10.239,INTC
+Price to free cash flows ratio,-11.290,21.555,9.443,15.673,15.126,INTC
+Price to operating cash flows ratio,7.035,6.944,5.586,8.006,7.324,INTC
+Price cash flow ratio,7.035,6.944,5.586,8.006,7.324,INTC
+Price earnings to growth ratio,-0.225,-5.800,2.148,2.881,0.083,INTC
+Price sales ratio,1.722,2.635,2.538,3.688,3.043,INTC
+Dividend yield,0.055,0.027,0.028,0.021,0.026,INTC
+Enterprise value multiple,12.560,6.618,6.002,8.624,10.222,INTC
+Price fair value,1.071,2.183,2.439,3.424,2.891,INTC

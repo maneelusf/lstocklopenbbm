@@ -1,0 +1,28 @@
+,ticker,2023,2024,2025
+Revenue(In $M),TRV,"39,443","42,098","44,406"
+Dividend,TRV,3.90,4.21,4.68
+Dividend Yield (in %),TRV,2.25 %,2.40 %,2.80 %
+EPS,TRV,14.51,16.90,19.35
+P/E Ratio,TRV,12.35,10.60,9.26
+EBIT(In $M),TRV,"3,860","4,250","5,177"
+EBITDA(In $M),TRV,"9,760","10,552",-
+Net Profit(In $M),TRV,"3,402","3,848","4,301"
+Net Profit Adjusted(In $M),TRV,"3,389","3,837","4,259"
+Pre-Tax Profit(In $M),TRV,"3,916","4,593","5,248"
+Net Profit (Adjusted)(In $M),TRV,"3,900","4,495",-
+EPS (Non-GAAP) ex. SOE(In $),TRV,14.51,16.90,19.35
+EPS (GAAP)(In $),TRV,14.45,16.76,19.56
+Gross Income(In $M),TRV,-,-,-
+Cash Flow from Investing(In $M),TRV,-,-,-
+Cash Flow from Operations(In $M),TRV,"9,760","10,552",-
+Cash Flow from Financing(In $M),TRV,-,-,-
+Cash Flow per Share(In $),TRV,42.01,46.64,-
+Free Cash Flow(In $M),TRV,312,298,-
+Free Cash Flow per Share(In $),TRV,-,-,-
+Book Value per Share(In $),TRV,110.11,119.45,132.00
+Net Debt(In $M),TRV,"7,291","7,291",-
+Research & Development Exp.(In $M),TRV,-,-,-
+Capital Expenditure(In $M),TRV,-,-,-
+"Selling, General & Admin. Exp.(In $M)",TRV,-,-,-
+Shareholder’s Equity(In $M),TRV,"24,048","25,458","28,859"
+Total Assets(In $M),TRV,"87,616","89,859","127,212"

@@ -1,0 +1,27 @@
+,ticker,2022-11-30,2021-11-30,2020-11-30,2019-11-30
+Cash and cash equivalents(figures in $M),LEN,4616.124,2735.213,2703.986,1445.996
+Other short-term investments(figures in $M),LEN,35.482,41.654,53.497,3.732
+Total cash(figures in $M),LEN,4616.124,2735.213,2703.986,1449.728
+Net receivables(figures in $M),LEN,673.98,490.278,298.671,706.969
+Inventory(figures in $M),LEN,21432.011,18715.304,16925.228,18093.647
+Total current assets(figures in $M),LEN,26745.161,21962.722,19943.096,22239.959
+"Gross property, plant and equipment(figures in $M)",LEN,581.917,538.761,589.037,448.109
+Accumulated depreciation(figures in $M),LEN,-226.822,-198.855,-177.519,-168.582
+"Net property, plant and equipment(figures in $M)",LEN,355.095,339.906,411.518,279.527
+Equity and other investments(figures in $M),LEN,1173.164,972.084,953.177,2218.319
+Goodwill(figures in $M),LEN,3442.359,3442.359,3442.359,3657.875
+Other long-term assets(figures in $M),LEN,6623.611,6830.613,5596.545,963.831
+Total non-current assets(figures in $M),LEN,11239.134,11245.056,9992.081,7119.552
+Total assets(figures in $M),LEN,37984.295,33207.778,29935.177,29359.511
+Accounts payable(figures in $M),LEN,1616.128,1321.247,1037.338,1069.179
+Other current liabilities(figures in $M),LEN,0.0,0.0,706.691,260.266
+Total current liabilities(figures in $M),LEN,1616.128,1321.247,1037.338,1069.179
+Long-term debt(figures in $M),LEN,4047.294,4652.338,5955.758,9573.696
+Other long-term liabilities(figures in $M),LEN,8080.506,6237.911,4842.68,2176.081
+Total non-current liabilities(figures in $M),LEN,12127.8,10890.249,10798.438,12256.502
+Total liabilities(figures in $M),LEN,13743.928,12211.496,11835.776,13325.681
+Common stock(figures in $M),LEN,29.268,33.994,33.838,33.656
+Retained earnings(figures in $M),LEN,18861.417,14685.329,10564.994,8295.001
+Accumulated other comprehensive income(figures in $M),LEN,2.408,-1.341,-0.805,0.498
+Total stockholders' equity(figures in $M),LEN,24100.5,20816.425,17994.856,15949.517
+Total liabilities and stockholders' equity(figures in $M),LEN,37984.295,33207.778,29935.177,29359.511

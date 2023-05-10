@@ -1,0 +1,28 @@
+,ticker,2023,2024,2025,2026,2027
+Revenue(In $M),DTE,"17,714","18,012","18,144","17,453","17,753"
+Dividend,DTE,3.82,4.08,4.37,4.70,5.02
+Dividend Yield (in %),DTE,3.54 %,3.79 %,4.06 %,4.38 %,4.67 %
+EPS,DTE,6.22,6.67,7.12,7.71,8.23
+P/E Ratio,DTE,18.17,16.94,15.86,14.65,13.73
+EBIT(In $M),DTE,"2,072","2,210","2,412","2,380","2,971"
+EBITDA(In $M),DTE,"3,629","3,861","4,065","3,895","4,263"
+Net Profit(In $M),DTE,"1,275","1,374","1,471","1,609","1,733"
+Net Profit Adjusted(In $M),DTE,"1,275","1,374","1,459","1,588","1,704"
+Pre-Tax Profit(In $M),DTE,"1,485","1,598","1,739","1,828","1,947"
+Net Profit (Adjusted)(In $M),DTE,"1,512","1,640","1,761",-,-
+EPS (Non-GAAP) ex. SOE(In $),DTE,6.22,6.67,7.12,7.71,8.23
+EPS (GAAP)(In $),DTE,6.18,6.66,7.14,7.75,8.35
+Gross Income(In $M),DTE,"6,662","6,966","7,246",-,-
+Cash Flow from Investing(In $M),DTE,"-4,036","-4,274","-4,530","-4,876","-3,750"
+Cash Flow from Operations(In $M),DTE,"2,692","2,824","3,014","2,993","3,800"
+Cash Flow from Financing(In $M),DTE,650,774,955,"1,040",206
+Cash Flow per Share(In $),DTE,14.50,15.18,15.65,16.47,17.24
+Free Cash Flow(In $M),DTE,-718,-803,-544,"-1,339","-1,269"
+Free Cash Flow per Share(In $),DTE,-6.29,-6.67,-6.03,-5.42,-4.76
+Book Value per Share(In $),DTE,53.11,55.54,58.23,-,-
+Net Debt(In $M),DTE,"20,763","22,652","24,952","27,362","29,090"
+Research & Development Exp.(In $M),DTE,-,-,-,-,-
+Capital Expenditure(In $M),DTE,"4,114","4,249","4,299","4,666","4,814"
+"Selling, General & Admin. Exp.(In $M)",DTE,"2,788","2,814","2,826",-,-
+Shareholder’s Equity(In $M),DTE,"11,381","11,909","12,482","12,441","13,637"
+Total Assets(In $M),DTE,"45,332","48,282","51,257","52,595","56,466"

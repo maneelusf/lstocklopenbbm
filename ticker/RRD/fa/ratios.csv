@@ -1,0 +1,55 @@
+,2021,2020,2019,2018,2017,ticker
+Current ratio,1.370,1.361,1.322,1.354,1.427,RRD
+Quick ratio,1.019,1.006,1.020,1.076,1.089,RRD
+Cash ratio,0.212,0.224,0.144,0.239,0.176,RRD
+Days of sales outstanding,78.196,77.284,67.554,69.686,74.561,RRD
+Days of inventory outstanding,32.225,29.100,21.662,21.703,27.073,RRD
+Operating cycle,110.421,106.384,89.216,91.389,101.634,RRD
+Days of payables outstanding,81.800,77.495,61.167,64.991,71.106,RRD
+Cash conversion cycle,28.620,28.889,28.049,26.398,30.528,RRD
+Gross profit margin,0.195,0.205,0.190,0.185,0.190,RRD
+Operating profit margin,0.033,0.023,0.016,0.031,0.033,RRD
+Pretax profit margin,0.010,-0.003,-0.006,0.004,0.011,RRD
+Net profit margin,0.001,0.021,-0.015,-0.002,-0.005,RRD
+Effective tax rate,0.922,-0.629,-1.568,1.339,1.440,RRD
+Return on assets,0.001,0.031,-0.028,-0.003,-0.009,RRD
+Return on equity,-0.021,-0.382,0.243,0.042,0.158,RRD
+Return on capital employed,0.090,0.059,0.049,0.100,0.096,RRD
+Net income per EBT,0.076,-6.195,2.582,-0.389,-0.456,RRD
+Ebt per ebit,0.298,-0.147,-0.366,0.136,0.333,RRD
+Ebit per revenue,0.033,0.023,0.016,0.031,0.033,RRD
+Debt ratio,1.053,1.078,1.111,1.067,1.052,RRD
+Debt equity ratio,-18.446,-13.095,-9.644,-14.941,-18.876,RRD
+Long term debt to capitalization,1.124,1.192,1.281,1.161,1.116,RRD
+Total debt to capitalization,1.118,1.175,1.267,1.142,1.115,RRD
+Interest coverage,1.266,0.791,0.643,1.209,1.242,RRD
+Cash flow to debt ratio,0.055,0.086,0.077,0.097,0.103,RRD
+Company equity multiplier,-17.523,-12.149,-8.679,-13.998,-17.943,RRD
+Receivables turnover,4.668,4.723,5.403,5.238,4.895,RRD
+Payables turnover,4.462,4.710,5.967,5.616,5.133,RRD
+Inventory turnover,11.327,12.543,16.850,16.818,13.482,RRD
+Fixed asset turnover,7.969,7.193,8.896,12.799,11.282,RRD
+Asset turnover,1.585,1.522,1.885,1.868,1.777,RRD
+Operating cash flow per share,1.258,2.072,1.956,2.882,3.104,RRD
+Free cash flow per share,0.257,0.888,0.007,1.404,1.558,RRD
+Cash per share,3.828,3.994,2.680,5.249,3.895,RRD
+Payout ratio,0,0.021,-0.091,-2.173,-1.140,RRD
+Operating cash flow sales ratio,0.019,0.031,0.022,0.030,0.031,RRD
+Free cash flow operating cash flow ratio,0.204,0.429,0.004,0.487,0.502,RRD
+Cash flow coverage ratios,0.055,0.086,0.077,0.097,0.103,RRD
+Short term coverage ratios,1.301,1.114,1.956,0.941,20.176,RRD
+Capital expenditure coverage ratio,-1.256,-1.750,-1.004,-1.949,-2.008,RRD
+Dividend paid and capex coverage ratio,-1.256,-1.794,-1.069,-2.528,-3.144,RRD
+Dividend payout ratio,0,0.021,-0.091,-2.173,-1.140,RRD
+Price book value ratio,-4.612,-0.634,-0.733,-1.075,-3.000,RRD
+Price to book ratio,-4.612,-0.634,-0.733,-1.075,-3.000,RRD
+Price to sales ratio,0.166,0.034,0.045,0.041,0.094,RRD
+Price earnings ratio,222.765,1.659,-3.018,-25.416,-18.978,RRD
+Price to free cash flows ratio,43.842,2.545,562.480,2.821,5.968,RRD
+Price to operating cash flows ratio,8.949,1.091,2.019,1.374,2.996,RRD
+Price cash flow ratio,8.949,1.091,2.019,1.374,2.996,RRD
+Price earnings to growth ratio,-2.313,0.008,0.004,-0.377,-0.204,RRD
+Price sales ratio,0.166,0.034,0.045,0.041,0.094,RRD
+Dividend yield,0,0.013,0.030,0.085,0.060,RRD
+Enterprise value multiple,7.239,4.067,6.677,5.253,5.555,RRD
+Price fair value,-4.612,-0.634,-0.733,-1.075,-3.000,RRD

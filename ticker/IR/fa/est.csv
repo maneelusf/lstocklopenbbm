@@ -1,0 +1,28 @@
+,ticker,2023,2024,2025,2026
+Revenue(In $M),IR,"6,426","6,745","7,132","7,438"
+Dividend,IR,0.04,0.04,0.04,0.08
+Dividend Yield (in %),IR,0.09 %,0.09 %,0.10 %,0.14 %
+EPS,IR,2.56,2.81,3.13,3.41
+P/E Ratio,IR,22.18,20.22,18.14,16.64
+EBIT(In $M),IR,"1,528","1,646","1,774","1,576"
+EBITDA(In $M),IR,"1,614","1,730","1,881","1,992"
+Net Profit(In $M),IR,"1,045","1,135","1,245","1,335"
+Net Profit Adjusted(In $M),IR,"1,045","1,135","1,245","1,335"
+Pre-Tax Profit(In $M),IR,"1,360","1,481","1,634","1,734"
+Net Profit (Adjusted)(In $M),IR,986,"1,062","1,174",-
+EPS (Non-GAAP) ex. SOE(In $),IR,2.56,2.81,3.13,3.41
+EPS (GAAP)(In $),IR,1.77,2.15,2.82,-
+Gross Income(In $M),IR,"2,631","2,756","2,831",-
+Cash Flow from Investing(In $M),IR,-542,-129,-130,-130
+Cash Flow from Operations(In $M),IR,"1,146","1,258","1,414","1,546"
+Cash Flow from Financing(In $M),IR,-199,-289,-83,-33
+Cash Flow per Share(In $),IR,2.90,3.35,3.64,-
+Free Cash Flow(In $M),IR,"1,043","1,126","1,376","1,416"
+Free Cash Flow per Share(In $),IR,2.55,2.61,3.34,3.46
+Book Value per Share(In $),IR,24.66,31.38,32.94,-
+Net Debt(In $M),IR,825,0,-952,-
+Research & Development Exp.(In $M),IR,-,-,-,-
+Capital Expenditure(In $M),IR,125,130,142,130
+"Selling, General & Admin. Exp.(In $M)",IR,"1,179","1,205","1,131",-
+Shareholder’s Equity(In $M),IR,"9,922","10,809","12,027","12,461"
+Total Assets(In $M),IR,"15,195","16,072","17,663","18,454"

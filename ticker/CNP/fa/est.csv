@@ -1,0 +1,28 @@
+,ticker,2023,2024,2025,2026,2027
+Revenue(In $M),CNP,"9,006","9,295","9,644","10,471","10,839"
+Dividend,CNP,0.75,0.80,0.85,0.91,0.95
+Dividend Yield (in %),CNP,2.66 %,2.86 %,3.02 %,3.17 %,3.38 %
+EPS,CNP,1.49,1.61,1.72,1.86,2.00
+P/E Ratio,CNP,19.99,18.44,17.26,16.04,14.91
+EBIT(In $M),CNP,"1,770","1,947","2,103","2,349","2,515"
+EBITDA(In $M),CNP,"3,178","3,440","3,585","3,656","3,862"
+Net Profit(In $M),CNP,949,"1,030","1,103","1,200","1,291"
+Net Profit Adjusted(In $M),CNP,949,"1,030","1,103","1,200","1,291"
+Pre-Tax Profit(In $M),CNP,"1,225","1,333","1,427","1,530","1,639"
+Net Profit (Adjusted)(In $M),CNP,"1,251","1,367","1,462",-,-
+EPS (Non-GAAP) ex. SOE(In $),CNP,1.49,1.61,1.72,1.86,2.00
+EPS (GAAP)(In $),CNP,1.48,1.62,1.72,1.85,1.99
+Gross Income(In $M),CNP,"6,506","6,873","7,133","7,592","7,867"
+Cash Flow from Investing(In $M),CNP,"-3,758","-4,503","-3,785","-3,550","-3,550"
+Cash Flow from Operations(In $M),CNP,"2,691","2,640","2,822","3,049","3,244"
+Cash Flow from Financing(In $M),CNP,"1,177","1,535",794,425,622
+Cash Flow per Share(In $),CNP,3.77,4.14,4.29,-,-
+Free Cash Flow(In $M),CNP,-804,-968,-804,-,-
+Free Cash Flow per Share(In $),CNP,0.09,-3.06,-1.05,-1.33,-0.91
+Book Value per Share(In $),CNP,15.63,16.50,17.41,-,-
+Net Debt(In $M),CNP,"18,315","20,199","21,845","23,040","24,156"
+Research & Development Exp.(In $M),CNP,-,-,-,-,-
+Capital Expenditure(In $M),CNP,"3,878","4,329","3,623","3,903","3,924"
+"Selling, General & Admin. Exp.(In $M)",CNP,"3,237","3,196","3,156",-,-
+Shareholder’s Equity(In $M),CNP,"10,051","10,589","11,162","12,219","12,889"
+Total Assets(In $M),CNP,"41,343","44,079","46,433","48,339","50,451"

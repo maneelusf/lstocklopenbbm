@@ -5,7 +5,6 @@ __pycache__/
 .ipynb_checkpoints/
 ./data/apis.yaml
 ./data/APIS.yaml
-ticker/
 economy/
 .ipynb
 ./data/faiss_index

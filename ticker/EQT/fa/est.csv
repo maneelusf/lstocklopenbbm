@@ -1,0 +1,28 @@
+,ticker,2023,2024,2025,2026,2027
+Revenue(In $M),EQT,"6,484","7,858","8,618","8,037","8,061"
+Dividend,EQT,0.60,0.62,0.64,-,-
+Dividend Yield (in %),EQT,1.99 %,2.07 %,2.24 %,-,-
+EPS,EQT,2.63,4.60,6.14,7.25,5.25
+P/E Ratio,EQT,11.81,6.76,5.06,4.29,5.92
+EBIT(In $M),EQT,"1,838","2,825","3,526","2,980","3,035"
+EBITDA(In $M),EQT,"3,434","4,849","5,499","5,909","4,895"
+Net Profit(In $M),EQT,"1,087","1,971","2,580","2,260","2,319"
+Net Profit Adjusted(In $M),EQT,"1,087","1,971","2,580","2,260","2,319"
+Pre-Tax Profit(In $M),EQT,"1,856","2,623","3,402","2,898","2,974"
+Net Profit (Adjusted)(In $M),EQT,"1,633","2,527","3,456",-,-
+EPS (Non-GAAP) ex. SOE(In $),EQT,2.63,4.60,6.14,7.25,5.25
+EPS (GAAP)(In $),EQT,3.71,4.45,5.96,5.11,5.25
+Gross Income(In $M),EQT,-,-,-,-,-
+Cash Flow from Investing(In $M),EQT,"-4,639","-2,091","-2,352","-2,096","-2,096"
+Cash Flow from Operations(In $M),EQT,"3,157","4,302","4,974","5,350","4,223"
+Cash Flow from Financing(In $M),EQT,106,-951,"-1,697","-1,169","-1,416"
+Cash Flow per Share(In $),EQT,-,9.93,11.68,12.43,9.36
+Free Cash Flow(In $M),EQT,721,"2,236","2,777","3,662",-
+Free Cash Flow per Share(In $),EQT,1.88,4.19,7.70,-,-
+Book Value per Share(In $),EQT,40.45,43.74,49.25,-,-
+Net Debt(In $M),EQT,"5,522","4,139","2,654",919,-
+Research & Development Exp.(In $M),EQT,-,-,-,-,-
+Capital Expenditure(In $M),EQT,"1,979","2,079","2,235","2,261","2,096"
+"Selling, General & Admin. Exp.(In $M)",EQT,279,302,307,-,-
+Shareholder’s Equity(In $M),EQT,"12,534","13,866","14,850","14,661","12,120"
+Total Assets(In $M),EQT,"24,771","26,461","26,856","30,285","31,180"
