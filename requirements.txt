@@ -7,3 +7,4 @@ cohere
 faiss-cpu
 yahoo_fin
 fuzzywuzzy
+tiktoken
