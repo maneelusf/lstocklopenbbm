@@ -7,3 +7,4 @@ langchain
 cohere
 faiss-cpu
 pypdf
+yahoo_fin
