@@ -178,29 +178,40 @@ Please predict sentiment classification of the above based on above text where s
     
     def qachain(self,vectorstore,query):
         if self.ticker == None:
-            documents = vectorstore.similarity_search(query)
+            filter_dict = {'$and':[{'metadata':{'$ne':'Sentiment News'}}]}
+            documents = vectorstore.as_retriever(search_kwargs={"k": 5,'filter':filter_dict}).get_relevant_documents(query)
         else:
-            documents = vectorstore.similarity_search(query,k = 1,filter = {'ticker':self.ticker})
+            filter_dict = {'$and':[{'ticker':self.ticker},{'metadata':{'$ne':'Sentiment News'}}]}
+            documents = vectorstore.as_retriever(search_kwargs={"k": 5,'filter':filter_dict}).get_relevant_documents(query)
+            #import pdb;pdb.set_trace()
+            #documents = vectorstore.similarity_search(query,k = 1,filter = {'ticker':self.ticker})
         #documents = vectorstore.as_retriever(search_kwargs={"k": 1}).get_relevant_documents(query)
+        k_count = min(len(set([doc.metadata['file_path'] for doc in documents])),3)*5
+        if k_count != 5:
+            documents = vectorstore.as_retriever(search_kwargs={"k": k_count,'filter':filter_dict}).get_relevant_documents(query)
+
+
+    #page_content = vectorstore.as_retriever(search_kwargs={"k": 10}).get_relevant_documents(query)
+        page_content = '\n\n'.join([doc.page_content for doc in documents])
+        file_names = [doc.metadata['file_path'] for doc in documents]
+        meta_data = documents[0].metadata
+       # file_path = 
+        context_precursor =  '''The below contains information about {} and you are a financial analyst'''.format(meta_data['ticker'])
+       # import pdb;pdb.set_trace()
+        prompt_template = """Use the following information to answer the question at the end in a coherent summary. 
+    {context_precursor}
+    {page_content}
+    Question: {question}
+    Think step by step. If there is not sufficient information provided, just say you don't know.
+    """
+        prompt = prompt_template.format(context_precursor = context_precursor,page_content = page_content,question = query)
         context_full_doc = []
-        file_names = []
-        for doc in documents:
-            page_content = doc.page_content
-            meta_data = doc.metadata['metadata']
-            ticker = doc.metadata['ticker']
-            context_precursor = '''The below contains information about {} and the information is {}'''.format(ticker,meta_data)
-            context_full= '''{}
-            {}'''.format(context_precursor,page_content)
-            context_full_doc.append(context_full)
-            file_names.append(doc.metadata['file_path'])
-        context_full_doc.append(query)
-        context_full_doc = '\n'.join(context_full_doc)
-        return context_full_doc,file_names
+        return prompt,file_names
     
     def process_file_names(self,file_names):
         csv_filter = [file_name for file_name in file_names if '.csv' in file_name]
+        if csv_filter == []:
+            return pd.DataFrame()
         df = pd.read_csv(csv_filter[0])
         df.rename(columns = {'Unnamed: 0':'Description'},inplace = True)
         return df
-    
-            
