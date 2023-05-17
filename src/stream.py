@@ -120,7 +120,7 @@ def tab2():
             cache_count = 0
             ### If cache_count is 0, then initialize the entire query, else just input the final query because the chat messages already caches the data.         
             st.title('FinGPT 101')
-            st.text('''The APIs under use in this application are strictly for academic purposes. The model under use over here is Claude 100k. 
+            st.text('''Disclaimer: The APIs under use in this application are strictly for academic purposes. The model under use over here is Claude 100k. 
             Claude's API key is limited to 1 concurrent user. If you find this application not working, it is 
                     probably because the server is loaded. Please try again after some time''')
 
