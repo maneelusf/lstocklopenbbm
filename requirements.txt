@@ -7,3 +7,6 @@ langchain
 cohere
 faiss-cpu
 pypdf
+streamlit_chat
+streamlit
+anthropic

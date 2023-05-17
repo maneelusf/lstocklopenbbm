@@ -1,5 +1,5 @@
 import yaml
-from langchain.llms import Cohere, OpenAI, AI21
+from langchain.llms import Cohere, OpenAI
 from langchain import PromptTemplate, LLMChain
 from langchain.callbacks import get_openai_callback
 from langchain.chains import SequentialChain,AnalyzeDocumentChain
@@ -11,11 +11,23 @@ from fuzzywuzzy import fuzz, process
 from langchain.prompts.example_selector import SemanticSimilarityExampleSelector
 from langchain.prompts import FewShotPromptTemplate, PromptTemplate
 from langchain.embeddings import CohereEmbeddings,OpenAIEmbeddings
-
 from langchain.vectorstores import FAISS
+from langchain.chat_models import ChatAnthropic
+from langchain.prompts.chat import (
+    ChatPromptTemplate,
+    SystemMessagePromptTemplate,
+    AIMessagePromptTemplate,
+    HumanMessagePromptTemplate,
+)
+from langchain.schema import (
+    AIMessage,
+    HumanMessage,
+    SystemMessage
+)
 from langchain.document_loaders import DataFrameLoader,CSVLoader,SeleniumURLLoader
 from langchain.docstore.document import Document
 from langchain.chains.summarize import load_summarize_chain
+import pypdf
 import os
 
 with open("../data/apis.yaml", "r") as file:
@@ -31,15 +43,9 @@ cohere_params = {
     "temperature": 0,
     "k": 0,
 }
-ai21_params = {
-    "model": "j2-jumbo-instruct",
-    "numResults": 1,
-    "temperature": 0,
-    "topP": 1,
-    "ai21_api_key": yaml_data["LLMS"]["AI21_API_KEY"],
-    "maxTokens": 25,
-}
 
+claude_params = {'anthropic_api_key':yaml_data["LLMS"]["CLAUDE_API_KEY"],
+                'model':'claude-instant-v1.1-100k','max_tokens_to_sample':30000}
 
 class StockLLM:
     def __init__(self, ticker):
@@ -59,15 +65,15 @@ class StockLLM:
         return file
 
 class LLM_analysis:
-    def __init__(self, ticker, open_ai_params, cohere_params, ai21_params):
-        ### Requires both Cohere and OpenAI APIs
+    def __init__(self, ticker, open_ai_params, cohere_params,claude_params):
+        ### Requires both Cohere/OpenAI/Claude APIs
         self.ticker = ticker
         self.open_ai_params = open_ai_params
         self.cohere_params = cohere_params
-        self.ai21_params = ai21_params
+        self.claude_params = claude_params
         self.cohere_llm = Cohere(**self.cohere_params)
         self.open_ai_llm = OpenAI(**self.open_ai_params)
-        self.ai21_llm = AI21(**self.ai21_params)
+        self.claude_llm = ChatAnthropic(**claude_params)
         self.stockllm = StockLLM(self.ticker)
 
     def sec_chain_analysis(self):
@@ -147,7 +153,7 @@ Please predict sentiment classification of the above based on above text where s
             loader = SeleniumURLLoader(urls=[file])
             data = loader.load()
             text = data[0].page_content
-        llm = AI21(temperature=0,ai21_api_key = ai21_params["ai21_api_key"])
+        llm = Cohere(temperature=0,cohere_api_key = cohere_params["cohere_api_key"])
         summary_chain = load_summarize_chain(llm, chain_type="map_reduce")
         summarize_document_chain = AnalyzeDocumentChain(combine_docs_chain=summary_chain)
         summary = summarize_document_chain.run(text)
@@ -169,13 +175,95 @@ Please predict sentiment classification of the above based on above text where s
             loader = SeleniumURLLoader(urls=[file])
             data = loader.load()
             text = data[0].page_content
-        llm = AI21(temperature=0,ai21_api_key = ai21_params["ai21_api_key"])
+        llm = Cohere(temperature=0,cohere_api_key = cohere_params["cohere_api_key"])
         summary_chain = load_summarize_chain(llm, chain_type="map_reduce")
         summarize_document_chain = AnalyzeDocumentChain(combine_docs_chain=summary_chain)
         summary = summarize_document_chain.run(text)
         final_class = self.input_from_user_embedding_shot(summary)
         return final_class
     
+    def context_precursor(self):
+        if self.ticker is not None:
+            entire_context = []
+            for file in sorted(os.listdir('../ticker/{}/fa'.format(self.ticker))):
+                if file == 'analysis_sec.txt':
+                    with open('../ticker/{}/fa/analysis_sec.txt'.format(self.ticker),'r') as f:
+                        x = f.read()
+                        context_precursor = '''Here are the summary of the latest SEC filings figures\n'''
+                        final_context = context_precursor + x
+                        entire_context.append(final_context)
+                elif file == 'est.csv':
+                    with open('../ticker/{}/fa/est.csv'.format(self.ticker),'r') as f:
+                        x = f.read()
+                        context_precursor = '''Here are some analyst estimates from Business Insider\n'''
+                        final_context = context_precursor + x
+                        entire_context.append(final_context)
+                elif file == 'income.csv':
+                    with open('../ticker/{}/fa/income.csv'.format(self.ticker),'r') as f:
+                        x = f.read()
+                        context_precursor = '''Here are the income statement figures\n'''
+                        final_context = context_precursor + x
+                        entire_context.append(final_context)
+                elif file == 'balance.csv':
+                    with open('../ticker/{}/fa/balance.csv'.format(self.ticker),'r') as f:
+                        x = f.read()
+                        context_precursor = '''Here are the balance sheet statement figures\n'''
+                        final_context = context_precursor + x
+                        entire_context.append(final_context)
+                elif file == 'cash.csv':
+                    with open('../ticker/{}/fa/cash.csv'.format(self.ticker),'r') as f:
+                        x = f.read()
+                        context_precursor = '''Here are the cash flow statement figures\n'''
+                        final_context = context_precursor + x
+                        entire_context.append(final_context)
+                elif file == 'ratios.csv':
+                    with open('../ticker/{}/fa/ratios.csv'.format(self.ticker),'r') as f:
+                        x = f.read()
+                        context_precursor = '''Here are the financial ratios statement figures\n'''
+                        final_context = context_precursor + x
+                        entire_context.append(final_context)
+                elif file == 'fraud.csv':
+                    with open('../ticker/{}/fa/fraud.csv'.format(self.ticker),'r') as f:
+                        x = f.read()
+                        context_precursor = '''Here are the fraud ratios statement figures\n'''
+                        final_context = context_precursor + x
+                        entire_context.append(final_context)
+
+            if os.path.exists('../ticker/{}/news/c_news.csv'.format(self.ticker)):
+                x = pd.read_csv('../ticker/{}/news/c_news.csv'.format(self.ticker))
+                x['datetime'] = pd.to_datetime(x['datetime'])
+                datetimemax = x['datetime'].max()
+                datetimemin = datetimemax + relativedelta(days = -7)
+                x = '\n'.join(list(x[(x['datetime'] >= datetimemin) & (x['datetime'] <= datetimemax)].head(10)['headline']))
+                context_precursor = '''Here are some recent news\n'''
+                final_context = context_precursor + x
+                entire_context.append(final_context)
+
+            entire_context = '\n\n'.join(entire_context)
+            self.entire_context = entire_context
+            
+    def qachain_anthropic(self,vectorstore,query):
+        if self.ticker == None:
+            raise Exception("Ticker must be present")
+        else:
+            self.context_precursor()
+            filter_dict = {'$and':[{'ticker':self.ticker},{'metadata':{'$ne':'Sentiment News'}}]}
+            documents = vectorstore.as_retriever(search_kwargs={"k": 5,'filter':filter_dict}).get_relevant_documents(query)
+            #documents = vectorstore.similarity_search(query,k = 1,filter = {'ticker':self.ticker})
+        #documents = vectorstore.as_retriever(search_kwargs={"k": 1}).get_relevant_documents(query)
+        k_count = max(len(set([doc.metadata['file_path'] for doc in documents])),3)*5
+        if k_count != 5:
+            documents = vectorstore.as_retriever(search_kwargs={"k": k_count,'filter':filter_dict}).get_relevant_documents(query)
+
+        file_names = [doc.metadata['file_path'] for doc in documents]
+
+        prompt = '''Use the following information to answer the question at the end in a coherent summary. 
+    The below contains information about {ticker} and you are a financial analyst
+    {context_precursor}
+    Question: {question}
+    Think step by step and be as detailed as possible. 
+    Do not mention anything in your response about the context/information'''.format(ticker = self.ticker,context_precursor = self.entire_context,question = query )
+        return prompt,file_names
     def qachain(self,vectorstore,query):
         if self.ticker == None:
             filter_dict = {'$and':[{'metadata':{'$ne':'Sentiment News'}}]}
@@ -183,10 +271,9 @@ Please predict sentiment classification of the above based on above text where s
         else:
             filter_dict = {'$and':[{'ticker':self.ticker},{'metadata':{'$ne':'Sentiment News'}}]}
             documents = vectorstore.as_retriever(search_kwargs={"k": 5,'filter':filter_dict}).get_relevant_documents(query)
-            #import pdb;pdb.set_trace()
             #documents = vectorstore.similarity_search(query,k = 1,filter = {'ticker':self.ticker})
         #documents = vectorstore.as_retriever(search_kwargs={"k": 1}).get_relevant_documents(query)
-        k_count = min(len(set([doc.metadata['file_path'] for doc in documents])),3)*5
+        k_count = max(len(set([doc.metadata['file_path'] for doc in documents])),3)*5
         if k_count != 5:
             documents = vectorstore.as_retriever(search_kwargs={"k": k_count,'filter':filter_dict}).get_relevant_documents(query)
 
@@ -202,16 +289,14 @@ Please predict sentiment classification of the above based on above text where s
     {context_precursor}
     {page_content}
     Question: {question}
-    Think step by step. If there is not sufficient information provided, just say you don't know.
+    Think step by step.Do not mention "As per the information or context" in your response.
     """
         prompt = prompt_template.format(context_precursor = context_precursor,page_content = page_content,question = query)
         context_full_doc = []
-        return prompt,file_names
+        return prompt,documents
     
     def process_file_names(self,file_names):
         csv_filter = [file_name for file_name in file_names if '.csv' in file_name]
-        if csv_filter == []:
-            return pd.DataFrame()
         df = pd.read_csv(csv_filter[0])
         df.rename(columns = {'Unnamed: 0':'Description'},inplace = True)
-        return df
+        return df       
