@@ -1,35 +1,19 @@
 import yaml
+import yahoo_fin.stock_info as si
+import yfinance as yf
 from langchain.llms import Cohere, OpenAI
-from langchain import PromptTemplate, LLMChain
-from langchain.callbacks import get_openai_callback
 from langchain.chains import SequentialChain,AnalyzeDocumentChain
 import pandas as pd
 import numpy as np
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-from fuzzywuzzy import fuzz, process
-from langchain.prompts.example_selector import SemanticSimilarityExampleSelector
-from langchain.prompts import FewShotPromptTemplate, PromptTemplate
-from langchain.embeddings import CohereEmbeddings,OpenAIEmbeddings
-from langchain.vectorstores import FAISS
 from langchain.chat_models import ChatAnthropic
-from langchain.prompts.chat import (
-    ChatPromptTemplate,
-    SystemMessagePromptTemplate,
-    AIMessagePromptTemplate,
-    HumanMessagePromptTemplate,
-)
-from langchain.schema import (
-    AIMessage,
-    HumanMessage,
-    SystemMessage
-)
-from langchain.document_loaders import DataFrameLoader,CSVLoader,SeleniumURLLoader
-from langchain.docstore.document import Document
 from langchain.chains.summarize import load_summarize_chain
-import pypdf
 import os
-
+from datetime import datetime
+from langchain.vectorstores import FAISS,Pinecone
+from langchain.embeddings import OpenAIEmbeddings
+from openbb_terminal.sdk import openbb
 with open("../data/apis.yaml", "r") as file:
     yaml_data = yaml.load(file, Loader=yaml.FullLoader)
 open_ai_params = {
@@ -75,91 +59,7 @@ class LLM_analysis:
         self.open_ai_llm = OpenAI(**self.open_ai_params)
         self.claude_llm = ChatAnthropic(**claude_params)
         self.stockllm = StockLLM(self.ticker)
-
-    def sec_chain_analysis(self):
-        ### Initally we need a good bullet point summary of the latest sec filings
-
-        template = """
-"This is the sec summary of {stock}.\n
-{summary}\n"
-Can you summarize the text into bullet points with numbers in detail. Be as detailed as possible:-
-"""
-        sec_template = PromptTemplate(
-            template=template, input_variables=["stock", "summary"]
-        )
-        sec_chain = LLMChain(
-            llm=self.cohere_llm, prompt=sec_template, output_key="sec_summary"
-        )
-        template = """You are a financial analyst. Based on the below bullet points, can you further separate them into positive
-and negative news in bullet points. Please do not leave out any point and go step by step.
-{sec_summary}"""
-        pos_neg_template = PromptTemplate(
-            template=template, input_variables=["sec_summary"]
-        )
-        pos_neg_chain = LLMChain(
-            llm=self.open_ai_llm, prompt=pos_neg_template, output_key="sec_final_output"
-        )
-        overall_chain = SequentialChain(
-            input_variables=["stock", "summary"],
-            chains=[sec_chain, pos_neg_chain],
-            # Here we return multiple variables
-            output_variables=["sec_final_output", "sec_summary"],
-            verbose=True,
-        )
-        with get_openai_callback() as cb:
-            statement = overall_chain(
-                {"stock": self.ticker, "summary": self.stockllm.sec_analysis_agent()}
-            )
-            cb = {
-                "Total Tokens": cb.total_tokens,
-                "Prompt Tokens": cb.prompt_tokens,
-                "Completion Tokens": cb.completion_tokens,
-                "Total Cost (USD)": cb.total_cost,
-            }
-            statement["token_summary"] = cb
-        return statement
-
-    def input_from_user_zero_shot(self, query):
-        ### Zero shot learning 
-        template = """
-"\n
-{summary}\n"
-Please predict sentiment classification of the above based on above text where sentiment can only be Strongly Positive, Positive, Strongly Negative, Negative, or Neutral. Only output the sentiment class, should be 1 or 2 words.:-
-"""
-        sec_template = PromptTemplate(template=template, input_variables=["summary"])
-        return self.open_ai_llm(template.format(summary=query))
-    
-    def input_from_user_embedding_shot(self,query):
-        classifications = ['Strongly Positive','Positive','Neutral','Negative','Strongly Negative']
-        ### Create embeddings
-        embeddings = OpenAIEmbeddings(openai_api_key = open_ai_params["openai_api_key"])
-        ## Create a faiss vector database
-        faiss_classifications = FAISS.from_texts(classifications,embeddings)
-        text = faiss_classifications.similarity_search_with_score(query,k = 1)[0][0].page_content
-        return text
-        
-    def input_from_user_sentiment_file(self,file,type_of_file):
-        if type_of_file not in ['pdf','txt','link','csv']:
-            raise NotImplementedError("This file extension has not been implemented.")
-        if type_of_file == 'pdf':
-            pages = [page.extract_text() for page in pypdf.PdfReader(file).pages]
-            text = '\n'.join(pages)
-
-        if type_of_file in ['txt','csv']:
-            with open(file,'r') as f:
-                text = f.read()
-        
-        if type_of_file == 'link':
-            loader = SeleniumURLLoader(urls=[file])
-            data = loader.load()
-            text = data[0].page_content
-        llm = Cohere(temperature=0,cohere_api_key = cohere_params["cohere_api_key"])
-        summary_chain = load_summarize_chain(llm, chain_type="map_reduce")
-        summarize_document_chain = AnalyzeDocumentChain(combine_docs_chain=summary_chain)
-        summary = summarize_document_chain.run(text)
-        final_class = self.input_from_user_embedding_shot(summary)
-        return final_class
-    
+  
     def query_user(self,file,type_of_file):
         if type_of_file not in ['pdf','txt','link','csv']:
             raise NotImplementedError("This file extension has not been implemented.")
@@ -238,7 +138,28 @@ Please predict sentiment classification of the above based on above text where s
                 context_precursor = '''Here are some recent news\n'''
                 final_context = context_precursor + x
                 entire_context.append(final_context)
-
+            #### last 7 days stock information
+            current_information = '''Latest stock price\n. Today's date is {} and the current stock price is {}'''.format(\
+                str(datetime.today()),si.get_live_price(self.ticker))
+            entire_context.append(current_information)
+            
+            ### Adding today's date and last 7 days stock movement  
+            def current_info(ticker):
+                x = yf.download(ticker)[['Close', 'Volume']]
+                x = x.asfreq('D')
+                last_7_days = x.dropna().tail(7)
+                last_12_months = x.resample('M').last().tail(12)
+                last_index = last_12_months.index[-1]
+                new_last_index = datetime.today()
+                new_index = list(last_12_months.index)
+                new_index[-1] = new_last_index
+                new_index = [str(x.date()) for x in new_index]
+                last_12_months.index = new_index
+                return last_7_days,last_12_months
+            last_7_days,last_12_months = current_info(self.ticker)
+            last_7_days_information = '''Last 7 days stock price(Close) and Volume\n {}'''.format(last_7_days.to_string())
+            last_12_months_information = '''Last 12 months stock price(Close) and Volume\n {}'''.format(last_12_months.to_string())
+            entire_context.extend([last_7_days_information,last_12_months_information])
             entire_context = '\n\n'.join(entire_context)
             self.entire_context = entire_context
             
@@ -249,8 +170,6 @@ Please predict sentiment classification of the above based on above text where s
             self.context_precursor()
             filter_dict = {'$and':[{'ticker':self.ticker},{'metadata':{'$ne':'Sentiment News'}}]}
             documents = vectorstore.as_retriever(search_kwargs={"k": 5,'filter':filter_dict}).get_relevant_documents(query)
-            #documents = vectorstore.similarity_search(query,k = 1,filter = {'ticker':self.ticker})
-        #documents = vectorstore.as_retriever(search_kwargs={"k": 1}).get_relevant_documents(query)
         k_count = max(len(set([doc.metadata['file_path'] for doc in documents])),3)*5
         if k_count != 5:
             documents = vectorstore.as_retriever(search_kwargs={"k": k_count,'filter':filter_dict}).get_relevant_documents(query)
@@ -261,7 +180,6 @@ Please predict sentiment classification of the above based on above text where s
     The below contains information about {ticker} and you are a financial analyst
     {context_precursor}
     Question: {question}
-    Think step by step and be as detailed as possible. 
     Do not mention anything in your response about the context/information'''.format(ticker = self.ticker,context_precursor = self.entire_context,question = query )
         return prompt,file_names
     def qachain(self,vectorstore,query):
@@ -271,20 +189,14 @@ Please predict sentiment classification of the above based on above text where s
         else:
             filter_dict = {'$and':[{'ticker':self.ticker},{'metadata':{'$ne':'Sentiment News'}}]}
             documents = vectorstore.as_retriever(search_kwargs={"k": 5,'filter':filter_dict}).get_relevant_documents(query)
-            #documents = vectorstore.similarity_search(query,k = 1,filter = {'ticker':self.ticker})
-        #documents = vectorstore.as_retriever(search_kwargs={"k": 1}).get_relevant_documents(query)
         k_count = max(len(set([doc.metadata['file_path'] for doc in documents])),3)*5
         if k_count != 5:
             documents = vectorstore.as_retriever(search_kwargs={"k": k_count,'filter':filter_dict}).get_relevant_documents(query)
-
-
-    #page_content = vectorstore.as_retriever(search_kwargs={"k": 10}).get_relevant_documents(query)
         page_content = '\n\n'.join([doc.page_content for doc in documents])
         file_names = [doc.metadata['file_path'] for doc in documents]
         meta_data = documents[0].metadata
        # file_path = 
         context_precursor =  '''The below contains information about {} and you are a financial analyst'''.format(meta_data['ticker'])
-       # import pdb;pdb.set_trace()
         prompt_template = """Use the following information to answer the question at the end in a coherent summary. 
     {context_precursor}
     {page_content}
@@ -294,6 +206,69 @@ Please predict sentiment classification of the above based on above text where s
         prompt = prompt_template.format(context_precursor = context_precursor,page_content = page_content,question = query)
         context_full_doc = []
         return prompt,documents
+    
+    def qachain_anthropic(self,vectorstore,query):
+        if self.ticker == None:
+            raise Exception("Ticker must be present")
+        else:
+            self.context_precursor()
+            filter_dict = {'$and':[{'ticker':self.ticker},{'metadata':{'$ne':'Sentiment News'}}]}
+            documents = vectorstore.as_retriever(search_kwargs={"k": 5,'filter':filter_dict}).get_relevant_documents(query)
+        k_count = max(len(set([doc.metadata['file_path'] for doc in documents])),3)*5
+        if k_count != 5:
+            documents = vectorstore.as_retriever(search_kwargs={"k": k_count,'filter':filter_dict}).get_relevant_documents(query)
+
+        file_names = [doc.metadata['file_path'] for doc in documents]
+
+        prompt = '''Use the following information to answer the question at the end in a coherent summary. 
+    The below contains information about {ticker} and you are a financial analyst
+    {context_precursor}
+    Question: {question}
+    Do not mention anything in your response about the context/information'''.format(ticker = self.ticker,context_precursor = self.entire_context,question = query )
+        return prompt,file_names
+    
+    def qachain_comparision(self,ticker_list,query):
+        question_check = ["This question is related to the balance sheets of the stocks",\
+ "This question is related to the share price movement of the stocks",\
+    "This question is related to the cashflow of the stocks",\
+      "This question is related to the income statement of the stocks",\
+       "This question is related to the volume of the stocks"]
+        oai = OpenAIEmbeddings(openai_api_key = open_ai_params['openai_api_key'])
+        faiss_query = FAISS.from_texts(question_check,oai)
+        x = faiss_query.similarity_search_with_relevance_scores(query)
+        dictionary = {"This question is related to the balance sheets of the stocks":'Balance Sheet',
+                    "This question is related to the share price movement of the stocks":"Share Price",\
+            "This question is related to the cashflow of the stocks":"Cash Flow",\
+            "This question is related to the income statement of the stocks":"Income Statement",\
+            "This question is related to the volume of the stocks":"Volume"}
+        similarities = [y[1] for y in x]
+        sub = [similarities[x] - similarities[0] if x!=0 else 0 for x in range(0,len(similarities))]
+        sub = sum([0 if abs(x)>0.025 else 1 for x in sub])
+        x = x[:sub]
+        page_content = [y[0].page_content for y in x]
+        context = []
+        for content in page_content:
+            if dictionary[content] == 'Balance Sheet':
+                content = '''This is the balance sheet information related to these stocks\n{}'''.format(openbb.stocks.ca.balance(ticker_list).to_string())
+                context.append(content)
+            elif dictionary[content] == 'Share Price':
+                content = '''This is the share price information related to these stocks\n{}'''.format(openbb.stocks.ca.hist(ticker_list).to_string())
+                context.append(content)
+            elif dictionary[content] == 'Cash Flow':
+                content = '''This is the cash flow information related to these stocks\n{}'''.format(openbb.stocks.ca.cashflow(ticker_list).to_string())
+                context.append(content)
+            elif dictionary[content] == 'Income Statement':
+                content = '''This is the income statement information related to these stocks\n{}'''.format(openbb.stocks.ca.income(ticker_list).to_string())
+                context.append(content)
+            elif dictionary[content] == 'Volume':
+                content = '''This is the volume information related to these stocks\n{}'''.format(openbb.stocks.ca.volume(ticker_list).to_string())
+                context.append(content)
+        final_context = '''You are a financial analyst. Looking at the above information, answer the following question.\n
+        If the context information is not related, just say "I don't know"
+        Question: {}'''.format(query)
+        context.append(final_context)
+        context = '''\n\n'''.join(context)
+        return context
     
     def process_file_names(self,file_names):
         csv_filter = [file_name for file_name in file_names if '.csv' in file_name]

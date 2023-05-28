@@ -56,6 +56,7 @@ llm = ChatAnthropic(**claude_params)
 
 def tab1():
     #c1,c2 = st.columns((1,3))
+    ticker = st.selectbox("Select a ticker", ticker_list)
     @st.cache_data
     def getsummary(ticker):
             table = si.get_quote_table(ticker, dict_result = False)
@@ -116,14 +117,10 @@ def tab1():
 
 def tab2():
    # PageBeginning()
+    ticker = st.selectbox("Select a ticker", ticker_list)
     if ticker != '-':
             cache_count = 0
             ### If cache_count is 0, then initialize the entire query, else just input the final query because the chat messages already caches the data.         
-            st.title('FinGPT 101')
-            st.text('''Disclaimer: The APIs under use in this application are strictly for academic purposes. The model under use over here is Claude 100k. 
-            Claude's API key is limited to 1 concurrent user. If you find this application not working, it is 
-                    probably because the server is loaded. Please try again after some time''')
-
             if 'generated' not in st.session_state:
                 st.session_state['generated'] = []
 
@@ -136,7 +133,7 @@ def tab2():
 
 
             user_input = get_text()
-            @st.cache_data
+            @st.cache_data(show_spinner=False)
             def getllmoutput(text,ticker,cache_count):
                 stock_llm = LLM_analysis(ticker,open_ai_params,cohere_params,claude_params)
                 if cache_count == 0:
@@ -165,10 +162,11 @@ def tab2():
                 #         "text": user_input,
                 #     },"parameters": {"repetition_penalty": 1.33},
                 # })
+                with st.spinner("Generating response"):
 
-                st.session_state.past.append(user_input)
-                output_query,display_df = getllmoutput(user_input,ticker,cache_count)
-                st.session_state.generated.append(output_query)
+                    st.session_state.past.append(user_input)
+                    output_query,display_df = getllmoutput(user_input,ticker,cache_count)
+                    st.session_state.generated.append(output_query)
 
             if st.session_state['generated']:
                 conversation_length = len(st.session_state['generated'])-1
@@ -187,9 +185,57 @@ def tab2():
     #References:
     #https://plotly.com/python/range-slider/
     
-        
-        
-    
+def tab3():
+   # PageBeginning()
+    #ticker = st.selectbox("Select a ticker", ticker_list)
+    options = st.multiselect(
+    'Please select your stocks',
+    ticker_list)
+    #st.write('You selected:', options)
+    if len(options) > 5:
+        st.write("Please limit to 5 stocks")
+    else:
+        # llm_bot = LLM_analysis(None,open_ai_params,cohere_params,claude_params)
+
+        # context = llm_bot.qachain_comparision(self,options,input_text)
+        cache_count = 0
+            ### If cache_count is 0, then initialize the entire query, else just input the final query because the chat messages already caches the data.         
+        if 'generated' not in st.session_state:
+            st.session_state['generated'] = []
+
+        if 'past' not in st.session_state:
+            st.session_state['past'] = []
+
+        def get_text():
+            input_text = st.text_input("You: ","", key="input",placeholder = "")
+            return input_text 
+        user_input = get_text()
+
+        @st.cache_data(show_spinner=False)
+        def getllmoutput(text,options,cache_count):
+            stock_llm = LLM_analysis(None,open_ai_params,cohere_params,claude_params)
+            if cache_count == 0:
+                query = stock_llm.qachain_comparision(options,text)
+            else:
+                query = text
+            messages = [HumanMessage(content=query)]
+            outputquery = llm(messages).content
+            cache_count = cache_count + 1
+            return outputquery
+
+        if user_input:
+            with st.spinner("Generating response"):
+                st.session_state.past.append(user_input)
+                output_query = getllmoutput(user_input,options,cache_count)
+                st.session_state.generated.append(output_query)
+
+        if st.session_state['generated']:
+            conversation_length = len(st.session_state['generated'])-1
+            last_conversation = max(len(st.session_state['generated'])-5,-1)
+
+            for i in range(conversation_length,last_conversation, -1):
+                message(st.session_state["generated"][i], key=str(i))
+                message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')    
 #==============================================================================
 # Main body
 #==============================================================================
@@ -198,42 +244,54 @@ def run():
     
     # Add the ticker selection on the sidebar
     # Get the list of stock tickers from S&P500
-    st.set_page_config(layout="wide")
+    #st.set_page_config(layout="wide")
+    global ticker_list
     ticker_list = os.listdir('../ticker')
     ticker_list = sorted(ticker_list)
     ticker_list = [ticker for ticker in ticker_list if ticker!='.DS_Store']
     ticker_list.insert(0,'-')
-    
-    
+
     #
     # Add selection box
-    global ticker
-    ticker = st.sidebar.selectbox("Select a ticker", ticker_list)
-    select_tab = st.sidebar.radio("Select tab", ['Summary', 'Ask me Anything'])
+    
+   # ticker = st.sidebar.selectbox("Select a ticker", ticker_list)
+    st.set_page_config(layout='wide')
+    st.title("FinGPT 101")
+    st.text('''Disclaimer: The APIs under use in this application are strictly\nfor academic purposes. The model under use over here is Claude 100k.Claude's API key is limited to 1 concurrent user. If you find this application\nnot working, it is probably because the server is loaded.\nPlease try again after some time''')
+    st.caption('To know in detail about our offerings')
+    with st.expander("Summary and Sentimenter"):
+        st.write('''
+            Please select a stock and you can find its summary as well as the news along with the sentiment buckets
+        ''')
+    with st.expander("Ticker Analyzer"):
+        st.write('''
+            Please select a stock and you can ask the following questions. The questions should be related only to the stock
+        ''')
+        st.markdown('''
+        - Give me an SEC filing summary of this stock.
+        - How has the payables increased yoy?
+        - Is this company cash flow positive?
+        - What do the analysts say about this stock?
+        - What is the current stock price of this stock?''')
+    
+    with st.expander("Comparitive Analyzer"):
+        st.write('''
+            Please select a list of stocks and you can ask the following questions. The questions can be related only to balance sheet,income statement,cash flow,share price and share volume.
+            Other additions(financial ratios are to be added)
+        ''')
+        st.markdown('''
+        Here are some sample questions:-
+        - Which amongst these stocks has the highest cash flow?
+        - Largest increase in share price in the last 6 months?
+        - Second highest total assets?
+        - Which amongst these stocks has the highest income?''')
+    select_tab = st.selectbox("Select tab", ['-','Summary', 'Ticker Analyzer','Comparitive Analyzer'])
     if select_tab == 'Summary':
         tab1()
-    elif select_tab == 'Ask me Anything':
+    elif select_tab == 'Ticker Analyzer':
         tab2()
+    elif select_tab == 'Comparitive Analyzer':
+        tab3()
     
 if __name__ == "__main__":
-    run()    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    run()     
