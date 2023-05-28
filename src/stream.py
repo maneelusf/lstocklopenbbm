@@ -274,24 +274,24 @@ def run():
         - What do the analysts say about this stock?
         - What is the current stock price of this stock?''')
     
-    with st.expander("Comparitive Analyzer"):
-        st.write('''
-            Please select a list of stocks and you can ask the following questions. The questions can be related only to balance sheet,income statement,cash flow,share price and share volume.
-            Other additions(financial ratios are to be added)
-        ''')
-        st.markdown('''
-        Here are some sample questions:-
-        - Which amongst these stocks has the highest cash flow?
-        - Largest increase in share price in the last 6 months?
-        - Second highest total assets?
-        - Which amongst these stocks has the highest income?''')
-    select_tab = st.selectbox("Select tab", ['-','Summary', 'Ticker Analyzer','Comparitive Analyzer'])
+    # with st.expander("Comparitive Analyzer"):
+    #     st.write('''
+    #         Please select a list of stocks and you can ask the following questions. The questions can be related only to balance sheet,income statement,cash flow,share price and share volume.
+    #         Other additions(financial ratios are to be added)
+    #     ''')
+    #     st.markdown('''
+    #     Here are some sample questions:-
+    #     - Which amongst these stocks has the highest cash flow?
+    #     - Largest increase in share price in the last 6 months?
+    #     - Second highest total assets?
+    #     - Which amongst these stocks has the highest income?''')
+    select_tab = st.selectbox("Select tab", ['-','Summary', 'Ticker Analyzer'])
     if select_tab == 'Summary':
         tab1()
     elif select_tab == 'Ticker Analyzer':
         tab2()
-    elif select_tab == 'Comparitive Analyzer':
-        tab3()
+    # elif select_tab == 'Comparitive Analyzer':
+    #     tab3()
     
 if __name__ == "__main__":
     run()     
